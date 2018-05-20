@@ -1,6 +1,6 @@
 import './bootstrap';
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('filters-sidebar', require('./components/FiltersSidebar.vue'));
 
 new Vue({
     el: '#app'

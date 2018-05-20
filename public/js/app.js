@@ -13879,7 +13879,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap__ = __webpack_require__(13);
 
 
-Vue.component('example-component', __webpack_require__(39));
+Vue.component('filters-sidebar', __webpack_require__(39));
 
 new Vue({
     el: '#app'
@@ -47152,7 +47152,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/ExampleComponent.vue"
+Component.options.__file = "resources/assets/js/components/FiltersSidebar.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -47161,9 +47161,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7168fb6a", Component.options)
+    hotAPI.createRecord("data-v-2423e750", Component.options)
   } else {
-    hotAPI.reload("data-v-7168fb6a", Component.options)
+    hotAPI.reload("data-v-2423e750", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -47304,10 +47304,73 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
+    props: ['categories'],
+
+    data: function data() {
+        return {
+            user: window.User,
+            filtersTab: true,
+            categoriesTab: false
+        };
+    },
+
+
+    methods: {
+        filtersClicked: function filtersClicked() {
+            this.filtersTab = true;
+            this.categoriesTab = false;
+        },
+        categoriesClicked: function categoriesClicked() {
+            this.filtersTab = false;
+            this.categoriesTab = true;
+        }
     }
 });
 
@@ -47319,30 +47382,212 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "card" }, [
+    _c("div", { staticClass: "card-header" }, [
+      _c(
+        "ul",
+        { staticClass: "nav nav-tabs card-header-tabs justify-content-center" },
+        [
+          _c("li", { staticClass: "nav-item" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                class: { active: _vm.filtersTab },
+                attrs: { href: "#" },
+                on: { click: _vm.filtersClicked }
+              },
+              [_vm._v("\n                    Filtros\n                ")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                class: { active: _vm.categoriesTab },
+                attrs: { href: "#" },
+                on: { click: _vm.categoriesClicked }
+              },
+              [_vm._v("\n                    Assuntos\n                ")]
+            )
+          ])
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c(
+      "ul",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.categoriesTab,
+            expression: "categoriesTab"
+          }
+        ],
+        staticClass: "list-group list-group-flush"
+      },
+      _vm._l(_vm.categories, function(category) {
+        return _c(
+          "a",
+          {
+            key: category.id,
+            staticClass: "list-group-item list-group-item-action",
+            attrs: { href: "#" }
+          },
+          [
+            _c("i", { staticClass: "fa fa-comments-o text-info" }),
+            _vm._v(" " + _vm._s(category.name) + "\n        ")
+          ]
+        )
+      })
+    ),
+    _vm._v(" "),
+    _c(
+      "ul",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.filtersTab,
+            expression: "filtersTab"
+          }
+        ],
+        staticClass: "list-group list-group-flush"
+      },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm.user
+          ? [_vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3)]
+          : _vm._e(),
+        _vm._v(" "),
+        _vm._m(4),
+        _vm._v(" "),
+        _vm._m(5),
+        _vm._v(" "),
+        _vm._m(6)
+      ],
+      2
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card card-default" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
-            ])
-          ])
-        ])
-      ])
-    ])
+    return _c(
+      "a",
+      {
+        staticClass: "list-group-item list-group-item-action",
+        attrs: { href: "#" }
+      },
+      [
+        _c("i", { staticClass: "fa fa-globe text-danger" }),
+        _vm._v(" Todo os tópicos\n        ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "list-group-item list-group-item-action",
+        attrs: { href: "#" }
+      },
+      [
+        _c("i", { staticClass: "fa fa-lightbulb-o text-danger" }),
+        _vm._v(" Meus tópicos\n            ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "list-group-item list-group-item-action",
+        attrs: { href: "#" }
+      },
+      [
+        _c("i", { staticClass: "fa fa-code-fork text-danger" }),
+        _vm._v(" Minhas participações\n            ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "list-group-item list-group-item-action",
+        attrs: { href: "#" }
+      },
+      [
+        _c("i", { staticClass: "fa fa-star text-danger" }),
+        _vm._v(" Meus favoritos\n            ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "list-group-item list-group-item-action",
+        attrs: { href: "#" }
+      },
+      [
+        _c("i", { staticClass: "fa fa-fire text-danger" }),
+        _vm._v(" Mais populares\n        ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "list-group-item list-group-item-action",
+        attrs: { href: "#" }
+      },
+      [
+        _c("i", { staticClass: "fa fa-fire text-danger" }),
+        _vm._v(" Solucionados\n        ")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "list-group-item list-group-item-action",
+        attrs: { href: "#" }
+      },
+      [
+        _c("i", { staticClass: "fa fa-lightbulb-o text-danger" }),
+        _vm._v(" Não solucionados\n        ")
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -47350,7 +47595,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7168fb6a", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-2423e750", module.exports)
   }
 }
 
