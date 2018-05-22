@@ -19,7 +19,7 @@ class CreateThreadsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('title');
             $table->text('body');
-            $table->string('slug');
+            $table->string('slug')->unique()->nullable();
             $table->boolean('solved')->default(false);
             $table->timestamps();
         });

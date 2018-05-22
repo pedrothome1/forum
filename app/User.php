@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -47,12 +46,14 @@ class User extends Authenticatable
      * Publish a thread.
      *
      * @param  Thread  $thread
-     * @return false|\Illuminate\Database\Eloquent\Model
+     * @return mixed
      */
     public function publish(Thread $thread)
     {
-        $thread->slug = Str::slug(Str::lower($thread->title));
+        return tap($this->threads()->save($thread), function ($thread) {
+            $thread->slug = $thread->title;
 
-        return $this->threads()->save($thread);
+            $thread->save();
+        });
     }
 }

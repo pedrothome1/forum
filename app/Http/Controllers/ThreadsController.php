@@ -65,9 +65,9 @@ class ThreadsController extends Controller
             'body' => 'required|string'
         ]);
 
-        $thread = new Thread(request(['category_id', 'title', 'body']));
-
-        auth()->user()->publish($thread);
+        $thread = auth()->user()->publish(
+            new Thread(request(['category_id', 'title', 'body']))
+        );
 
         $this->flash('Tópico criado com sucesso.');
 

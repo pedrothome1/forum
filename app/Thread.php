@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Str;
 use App\Filters\ThreadFilters;
 
 class Thread extends Model
@@ -16,6 +17,23 @@ class Thread extends Model
     public function scopeFilter($query, ThreadFilters $filters)
     {
         return $filters->apply($query);
+    }
+
+    /**
+     * Set the slug attribute.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setSlugAttribute($value)
+    {
+        $slug = Str::slug(Str::lower($value));
+
+        if (static::whereSlug($slug)->exists()) {
+            $slug = "{$slug}-{$this->id}";
+        }
+
+        $this->attributes['slug'] = $slug;
     }
 
     /**
