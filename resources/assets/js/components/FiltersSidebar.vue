@@ -26,7 +26,7 @@
         </ul>
 
         <ul v-show="filtersTab" class="list-group list-group-flush">
-            <a href="#" class="list-group-item list-group-item-action">
+            <a href="/" class="list-group-item list-group-item-action">
                 <i class="fa fa-globe text-danger"></i> Todo os tópicos
             </a>
 

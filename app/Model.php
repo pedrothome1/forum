@@ -7,8 +7,18 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class Model extends Eloquent
 {
+    /**
+     * @var array
+     */
     protected $guarded = [];
 
+
+    /**
+     * The path to the given model.
+     *
+     * @param  string  $additional
+     * @return string
+     */
     public function path($additional = '')
     {
         if ($additional) {

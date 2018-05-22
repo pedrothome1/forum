@@ -3,10 +3,12 @@
 @section('content')
     <div class="row">
         <div class="col-md-8">
-            @foreach ($threads as $thread)
+            @forelse ($threads as $thread)
                 <div class="card">
                     <div class="card-header">
-                        <a class="font-weight-bold" href="#">{{ $thread->title }}</a>
+                        <a class="font-weight-bold" href="{{ $thread->path() }}">
+                            {{ $thread->title }}
+                        </a>
                     </div>
 
                     <div class="card-body">
@@ -15,13 +17,20 @@
                 </div>
 
                 <br>
-            @endforeach
+            @empty
+                <div class="alert alert-warning">
+                    Não há nenhum tópico criado até o momento.
+                </div>
+            @endforelse
 
             {{ $threads->links() }}
         </div>
 
-        <div class="col-md-4">
-            <filters-sidebar :categories="{{ $categories }}"></filters-sidebar>
-        </div>
+
+        @if (count($threads))
+            <div class="col-md-4">
+                <filters-sidebar :categories="{{ $categories }}"></filters-sidebar>
+            </div>
+        @endif
     </div>
 @endsection

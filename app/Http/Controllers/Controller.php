@@ -10,4 +10,18 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    /**
+     * Store a flash message in the session.
+     *
+     * @param  string  $message
+     * @param  string  $name
+     * @param  string  $class
+     * @return void
+     */
+    public function flash($message, $name = 'status', $class = 'success')
+    {
+        session()->flash($name, $message);
+        session()->flash('class', $class);
+    }
 }
