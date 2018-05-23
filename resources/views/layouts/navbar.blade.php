@@ -12,7 +12,7 @@
             <ul class="navbar-nav mr-auto">
                 @auth
                     <li>
-                        <a class="nav-link" href="/threads/create">Novo tópico</a>
+                        <a class="nav-link {{ request()->is('threads/create') ? 'active' : '' }}" href="/threads/create">Novo tópico</a>
                     </li>
                 @endauth
             </ul>
