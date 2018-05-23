@@ -3,10 +3,10 @@
 use Faker\Generator as Faker;
 
 $factory->define(\App\Category::class, function (Faker $faker) {
-    $name = $faker->word;
+    $name = $faker->unique()->word;
 
     return [
         'name' => $name,
-        'slug' => $name
+        'slug' => mb_strtolower($name, 'UTF-8')
     ];
 });

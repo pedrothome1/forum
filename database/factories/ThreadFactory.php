@@ -3,8 +3,11 @@
 use Faker\Generator as Faker;
 
 $factory->define(\App\Thread::class, function (Faker $faker) {
+    $title = $faker->unique()->sentence;
+
     return [
-        'title' => $faker->sentence,
+        'title' => $title,
+        'slug' => mb_strtolower($title, 'UTF-8'),
         'body' => $faker->paragraph,
         'user_id' => function () {
             return factory(\App\User::class)->create()->id;
