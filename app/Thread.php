@@ -45,4 +45,12 @@ class Thread extends Model
     {
         return 'slug';
     }
+
+     /**
+     * Get the user that belongs to a thread
+     */
+    public function user() 
+    {
+        return $this->belongsTo(User::class);
+    }
 }

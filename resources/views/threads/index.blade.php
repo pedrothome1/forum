@@ -3,7 +3,8 @@
 @section('content')
     <div class="row">
         <div class="col-md-8">
-            <table class="table table-hover table-bordered">
+
+            <table class="table table-bordered">
                 <thead class="bg-light">
                     <tr>
                         <th>Tópico</th>
@@ -17,22 +18,23 @@
                         <tr>
                             <td>
                                 <a href="{{ $thread->path() }}">{{ str_limit($thread->title, 55) }}</a>
-                                <small class="text-muted d-block">Autor: João Antônio</small>
+                                <small class="text-muted d-block">por: {{ $thread->user->username }}</small>
                             </td>
-                            <td>20/02/2016 às 12h32</td>
-                            <td class="text-center">5</td>
+
+                            {{-- Falta formatar a data de criação do post --}}
+                            <td>{{ $thread->created_at }}</td> 
+                            <td class="text-center">{{ rand(0, 20) }}</td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="3">Não há tópicos para exibir</td>
+                            <td colspan="3" class="text-center">Não há tópicos para exibir</td>
                         </tr>
                     @endforelse
-                    
-                    <tr>
-                        <td colspan="3">{{ $threads->links() }}</td>
-                    </tr>   
                 </tbody>
             </table>
+            
+            {{ $threads->links() }}
+        
         </div>
 
         @if (count($threads))
