@@ -46,7 +46,6 @@ class Thread extends Model
         return 'slug';
     }
 
-
     /**
      * A thread belongs to a user.
      *
@@ -56,7 +55,6 @@ class Thread extends Model
     {
         return $this->belongsTo(User::class);
     }
-
 
     /**
      * A thread belongs to a category.

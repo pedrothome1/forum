@@ -123,7 +123,9 @@ return [
         'password' => 'Senha',
         'access' => 'Acesso',
         'number' => 'Número',
-        'category_id' => 'Assunto'
+        'category_id' => 'Assunto',
+        'title' => 'Título',
+        'body' => 'Detalhes do tópico'
     ],
 
 ];

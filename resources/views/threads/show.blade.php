@@ -9,9 +9,9 @@
                 <div class="card-header">
                     <h4>{{ $thread->title }}</h4>
 
-                    <span class="text-muted text-uppercase">
+                    <small class="text-muted text-uppercase">
                         Publicado {{ $thread->created_at->diffForHumans() }} por: <a href="#">{{ $thread->user->username }}</a>
-                    </span>
+                    </small>
                 </div>
 
                 <div class="card-body">
