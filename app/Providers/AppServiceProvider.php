@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with(['categories' => Category::all(), 'anyThread' => !! Thread::count()]);
         });
 
+        setlocale(LC_TIME, 'Portuguese');
         Carbon::setLocale('pt-BR');
     }
 
