@@ -4,12 +4,12 @@
     <div class="row">
         <div class="col-md-8">
 
-            <table class="table table-bordered">
+            <table class="table table-bordered table-hover">
                 <thead class="bg-light">
                     <tr>
                         <th>Tópico</th>
-                        <th>Assunto</th>
-                        <th>Respostas</th>
+                        <th class="text-center">Assunto</th>
+                        <th class="text-center">Respostas</th>
                     </tr>
                 </thead>
 
@@ -19,7 +19,7 @@
                             <td>
                                 <a href="{{ $thread->path() }}">{{ str_limit($thread->title, 55) }}</a>
                                 <small class="text-muted d-block">
-                                    por: {{ $thread->user->username }} &#183; {{ $thread->created_at->diffForHumans() }}
+                                    por: <strong>{{ $thread->user->username }}</strong> &#8226; {{ $thread->created_at->diffForHumans() }}
                                 </small>
                             </td>
 
@@ -33,9 +33,9 @@
                     @endforelse
                 </tbody>
             </table>
-            
+
             {{ $threads->links('vendor.pagination.bootstrap-4') }}
-        
+            
         </div>
 
         @if ($anyThread)
