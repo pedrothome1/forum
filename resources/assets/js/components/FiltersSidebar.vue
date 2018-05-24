@@ -19,7 +19,7 @@
         <ul v-show="categoriesTab" class="list-group list-group-flush">
             <a v-for="category in categories"
                :key="category.id"
-               href="#"
+               :href="`/${category.slug}`"
                class="list-group-item list-group-item-action">
                 <i class="fa fa-comments-o text-info"></i> {{ category.name }}
             </a>

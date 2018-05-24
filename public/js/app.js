@@ -47152,7 +47152,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/FiltersSidebar.vue"
+Component.options.__file = "resources\\assets\\js\\components\\FiltersSidebar.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -47161,9 +47161,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-2423e750", Component.options)
+    hotAPI.createRecord("data-v-bb2a6cd0", Component.options)
   } else {
-    hotAPI.reload("data-v-2423e750", Component.options)
+    hotAPI.reload("data-v-bb2a6cd0", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -47436,7 +47436,7 @@ var render = function() {
           {
             key: category.id,
             staticClass: "list-group-item list-group-item-action",
-            attrs: { href: "#" }
+            attrs: { href: "/" + category.slug }
           },
           [
             _c("i", { staticClass: "fa fa-comments-o text-info" }),
@@ -47595,7 +47595,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-2423e750", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-bb2a6cd0", module.exports)
   }
 }
 

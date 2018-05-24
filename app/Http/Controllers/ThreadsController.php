@@ -47,9 +47,7 @@ class ThreadsController extends Controller
      */
     public function create()
     {
-        $anyThread = !! Thread::count();
-
-        return view('threads.create', compact('anyThread'));
+        return view('threads.create');
     }
 
     /**
@@ -60,9 +58,9 @@ class ThreadsController extends Controller
     public function store()
     {
         $this->validate(request(), [
-            'category_id' => 'required|numeric|min:1',
             'title' => 'required|string',
-            'body' => 'required|string'
+            'body' => 'required|string',
+            'category_id' => 'required|numeric|min:1|exists:categories,id'
         ]);
 
         $thread = auth()->user()->publish(
@@ -82,7 +80,7 @@ class ThreadsController extends Controller
      */
     public function show(Thread $thread)
     {
-        //
+        return view('threads.show', compact('thread'));
     }
 
     /**

@@ -56,4 +56,15 @@ class Thread extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+
+    /**
+     * A thread belongs to a category.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

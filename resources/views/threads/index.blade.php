@@ -8,7 +8,7 @@
                 <thead class="bg-light">
                     <tr>
                         <th>Tópico</th>
-                        <th>Postado em</th>
+                        <th>Assunto</th>
                         <th>Respostas</th>
                     </tr>
                 </thead>
@@ -18,12 +18,13 @@
                         <tr>
                             <td>
                                 <a href="{{ $thread->path() }}">{{ str_limit($thread->title, 55) }}</a>
-                                <small class="text-muted d-block">por: {{ $thread->user->username }}</small>
+                                <small class="text-muted d-block">
+                                    por: {{ $thread->user->username }} &#183; {{ $thread->created_at->diffForHumans() }}
+                                </small>
                             </td>
 
-                            {{-- Falta formatar a data de criação do post --}}
-                            <td>{{ $thread->created_at }}</td> 
-                            <td class="text-center">{{ rand(0, 20) }}</td>
+                            <td class="align-middle">{{ $thread->category->name }}</td>
+                            <td class="text-center align-middle">{{ rand(0, 20) }}</td>
                         </tr>
                     @empty
                         <tr>
@@ -33,11 +34,11 @@
                 </tbody>
             </table>
             
-            {{ $threads->links() }}
+            {{ $threads->links('vendor.pagination.bootstrap-4') }}
         
         </div>
 
-        @if (count($threads))
+        @if ($anyThread)
             <div class="col-md-4">
                 <filters-sidebar :categories="{{ $categories }}"></filters-sidebar>
             </div>
