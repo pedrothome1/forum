@@ -23,6 +23,29 @@
                     {{ $thread->body }}
                 </div>
             </div>
+            
+            <div class="card my-3">
+                <div class="card-body">
+                    <p><span class="font-weight-bold">JuvenalAntena99</span><span class="text-muted"> (há 10 minutos atrás):</span> </p>
+                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi architecto totam possimus voluptatum nulla, neque repudiandae iure dolorum laborum aut sed tempore, veniam nihil commodi cumque hic. A, ipsam, amet.</p>
+                </div>
+            </div>
+    
+            @auth
+                <form>
+                    <div class="form-group">
+                        <textarea name="" id="" rows="4" class="form-control" placeholder="Sua resposta aqui..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-info">Responder</button>
+                    </div>
+                </form>
+            @else 
+                <div>
+                    <p class="text-center">Você precisa estar logado para responder. <a href="{{ url('/login') }}">Logar-se</a>.</p>
+                </div>
+            @endauth
         </div>
 
         <div class="col-md-4">

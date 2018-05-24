@@ -17,7 +17,7 @@
                     @forelse($threads as $thread)
                         <tr>
                             <td>
-                                <a href="{{ $thread->path() }}">{{ str_limit($thread->title, 55) }}</a>
+                                <a href="{{ $thread->path() }}">{{ str_limit($thread->title, 65) }}</a>
                                 <small class="text-muted d-block">
                                     por: <strong>{{ $thread->user->username }}</strong> &#8226; {{ $thread->created_at->diffForHumans() }}
                                 </small>
