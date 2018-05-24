@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-8">
 
-            <table class="table table-bordered table-hover">
+            <table class="table table-bordered">
                 <thead class="bg-light">
                     <tr>
                         <th>Tópico</th>
