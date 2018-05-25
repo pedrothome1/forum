@@ -65,4 +65,14 @@ class Thread extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    /**
+    * A thread hasMany replies.
+    *
+    * @return \Illuminate\Database\Eloquent\Relations\hasMany
+    */
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
 }

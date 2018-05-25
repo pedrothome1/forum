@@ -4,7 +4,8 @@
     <div class="row">
         <div class="col-md-8">
             @include('layouts.status')
-
+            
+            {{-- THREAD --}}
             <div class="card">
                 <div class="card-header">
                     <h4>{{ $thread->title }}</h4>
@@ -24,26 +25,48 @@
                 </div>
             </div>
             
-            <div class="card my-3">
-                <div class="card-body">
-                    <p><span class="font-weight-bold">JuvenalAntena99</span><span class="text-muted"> (há 10 minutos atrás):</span> </p>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi architecto totam possimus voluptatum nulla, neque repudiandae iure dolorum laborum aut sed tempore, veniam nihil commodi cumque hic. A, ipsam, amet.</p>
+            {{-- RELPLY --}}
+            @foreach($thread->replies as $replie)
+                <div class="card my-3">
+                    <div class="card-body">
+                        <p class="mb-0">
+                            <span class="font-weight-bold">{{ $replie->user->username }}</span>
+                            <span class="text-muted"> ({{ $replie->created_at->diffForHumans() }}): </span> 
+                        </p>
+                        <p class="mb-0">
+                            {{ $replie->body }}
+                        </p>
+                    </div>
                 </div>
-            </div>
-    
+            @endforeach
+            
+            {{-- FORM TO REPLY --}}
             @auth
-                <form>
+                <form action="/threads/{{ $thread->slug }}/replie" method="POST" class="my-3">
+
+                    @csrf
+
                     <div class="form-group">
-                        <textarea name="" id="" rows="4" class="form-control" placeholder="Sua resposta aqui..."></textarea>
+                        <textarea name="reply-body" rows="4" class="form-control {{ $errors->has('reply-body') ? 'is-invalid' : '' }}" placeholder="Sua resposta aqui..."></textarea>
+
+                        @if($errors->has('reply-body'))
+                            <span class="invalid-feedback">
+                                <strong>{{ $errors->first('reply-body') }}</strong>
+                            </span>
+                        @endif
                     </div>
 
                     <div class="form-group">
-                        <button class="btn btn-info">Responder</button>
+                        <button class="btn btn-primary">
+                            Responder
+                        </button>
                     </div>
                 </form>
             @else 
                 <div>
-                    <p class="text-center">Você precisa estar logado para responder. <a href="{{ url('/login') }}">Logar-se</a>.</p>
+                    <p class="text-center">
+                        Você precisa estar logado para responder. <a href="{{ url('/login') }}">Logar-se</a>.
+                    </p>
                 </div>
             @endauth
         </div>

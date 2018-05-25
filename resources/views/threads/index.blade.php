@@ -24,7 +24,7 @@
                             </td>
 
                             <td class="align-middle">{{ $thread->category->name }}</td>
-                            <td class="text-center align-middle">{{ rand(0, 20) }}</td>
+                            <td class="text-center align-middle">{{ count($thread->replies) }}</td>
                         </tr>
                     @empty
                         <tr>
