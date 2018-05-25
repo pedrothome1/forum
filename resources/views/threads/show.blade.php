@@ -26,15 +26,15 @@
             </div>
             
             {{-- RELPLY --}}
-            @foreach($thread->replies as $replie)
+            @foreach($thread->replies as $reply)
                 <div class="card my-3">
                     <div class="card-body">
                         <p class="mb-0">
-                            <span class="font-weight-bold">{{ $replie->user->username }}</span>
-                            <span class="text-muted"> ({{ $replie->created_at->diffForHumans() }}): </span> 
+                            <span class="font-weight-bold">{{ $reply->user->username }}</span>
+                            <span class="text-muted"> ({{ $reply->created_at->diffForHumans() }}): </span> 
                         </p>
                         <p class="mb-0">
-                            {{ $replie->body }}
+                            {{ $reply->body }}
                         </p>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                 </form>
             @else 
                 <div>
-                    <p class="text-center">
+                    <p class="text-center my-3">
                         Você precisa estar logado para responder. <a href="{{ url('/login') }}">Logar-se</a>.
                     </p>
                 </div>
