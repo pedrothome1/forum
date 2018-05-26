@@ -67,9 +67,9 @@ class Thread extends Model
     }
 
     /**
-    * A thread hasMany replies.
+    * A thread has many replies.
     *
-    * @return \Illuminate\Database\Eloquent\Relations\hasMany
+    * @return \Illuminate\Database\Eloquent\Relations\HasMany
     */
     public function replies()
     {

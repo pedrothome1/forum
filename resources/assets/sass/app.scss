@@ -11,3 +11,28 @@
 .list-group-item .fa {
   width: 15px;
 }
+
+.favorite-link {
+  color: #999;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: transparent;
+  outline: none !important;
+}
+
+.favorite-link:hover {
+  text-decoration: none;
+}
+
+.favorite-link:active {
+  outline: none !important;
+}
+
+.favorite-link.danger:hover i.fa {
+  color: $danger;
+}
+
+.favorite-link.success:hover i.fa {
+  color: $orange;
+}

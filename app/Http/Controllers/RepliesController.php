@@ -2,21 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Reply;
 use App\Thread;
 
 class RepliesController extends Controller
 {
-    public function store(Thread $thread) 
+    /**
+     * Add a reply to a thread.
+     *
+     * @param  Thread  $thread
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(Thread $thread)
     {
-        $this->validate(request(), ['reply-body' => 'required']);
+        $this->validate(request(), ['reply_body' => 'required']);
 
-    	Reply::create([
-    		'body' => request('reply-body'),
-    		'user_id' => auth()->id(),
-    		'thread_id' => $thread->id
-    	]);
+        $thread->replies()->create([
+            'body' => request('reply_body'),
+            'user_id' => auth()->id(),
+        ]);
 
     	return back();
     }

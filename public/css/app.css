@@ -3066,7 +3066,7 @@
   --purple: #6f42c1;
   --pink: #e83e8c;
   --red: #dc3545;
-  --orange: #fd7e14;
+  --orange: #ef6733;
   --yellow: #ffc107;
   --green: #28a745;
   --teal: #20c997;
@@ -13474,5 +13474,30 @@ a.text-dark:focus {
 
 .list-group-item .fa {
   width: 15px;
+}
+
+.favorite-link {
+  color: #999;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: transparent;
+  outline: none !important;
+}
+
+.favorite-link:hover {
+  text-decoration: none;
+}
+
+.favorite-link:active {
+  outline: none !important;
+}
+
+.favorite-link.danger:hover i.fa {
+  color: #dc3545;
+}
+
+.favorite-link.success:hover i.fa {
+  color: #ef6733;
 }
 

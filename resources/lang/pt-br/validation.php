@@ -126,7 +126,7 @@ return [
         'category_id' => 'Assunto',
         'title' => 'Título',
         'body' => 'Detalhes do tópico',
-        'reply-body' => 'Resposta'
+        'reply_body' => 'Resposta'
     ],
 
 ];

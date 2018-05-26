@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="form-group">
-                        <a href="/" class="btn btn-outline-secondary">
+                        <a href="/" class="btn btn-light">
                             Cancelar
                         </a>
 
