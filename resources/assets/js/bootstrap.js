@@ -3,12 +3,14 @@ import _ from 'lodash';
 import Popper from 'popper.js';
 import jQuery from 'jquery';
 import 'bootstrap';
+import toastr from 'toastr';
 import axios from 'axios';
 
 window.Vue = Vue;
 window._ = _;
 window.Popper = Popper.default;
 window.$ = window.jQuery = jQuery;
+window.toastr = toastr;
 window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -21,13 +23,18 @@ if (token) {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
-// import Echo from 'laravel-echo'
-
-// window.Pusher = require('pusher-js');
-
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: process.env.MIX_PUSHER_APP_KEY,
-//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     encrypted: true
-// });
+toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": true,
+    "progressBar": true,
+    "positionClass": "toast-bottom-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "0",
+    "hideDuration": "0",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+};

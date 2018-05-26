@@ -3,8 +3,6 @@
 @section('content')
     <div class="row">
         <div class="col-md-8">
-            @include('layouts.status')
-
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <div>

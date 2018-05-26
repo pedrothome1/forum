@@ -19,6 +19,8 @@
         <main class="py-4 container">
             @yield('content')
         </main>
+
+        <flash type="{{ session('type') }}" message="{{ session('status') }}"></flash>
     </div>
 
     @auth
