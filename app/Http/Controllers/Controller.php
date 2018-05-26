@@ -16,12 +16,12 @@ class Controller extends BaseController
      *
      * @param  string  $message
      * @param  string  $name
-     * @param  string  $class
+     * @param  string  $type
      * @return void
      */
-    public function flash($message, $name = 'status', $class = 'success')
+    public function flash($message, $name = 'status', $type = 'success')
     {
         session()->flash($name, $message);
-        session()->flash('class', $class);
+        session()->flash('type', $type);
     }
 }
