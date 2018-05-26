@@ -5,7 +5,7 @@ namespace App;
 class Reply extends Model
 {
     /**
-    * A Replie belongs to a User
+    * A Reply belongs to a User
     *
     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
     */

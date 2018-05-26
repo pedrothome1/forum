@@ -8,6 +8,18 @@ use App\Filters\ThreadFilters;
 class Thread extends Model
 {
     /**
+     * Boot the model.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($thread) {
+            $thread->update(['slug' => $thread->title]);
+        });
+    }
+
+    /**
      * Apply the thread filters.
      *
      * @param  $query

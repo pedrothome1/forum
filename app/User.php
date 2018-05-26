@@ -50,10 +50,6 @@ class User extends Authenticatable
      */
     public function publish(Thread $thread)
     {
-        return tap($this->threads()->save($thread), function ($thread) {
-            $thread->slug = $thread->title;
-
-            $thread->save();
-        });
+        return $this->threads()->save($thread);
     }
 }
