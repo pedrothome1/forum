@@ -2,37 +2,4 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
 @import "variables";
 @import '~bootstrap/scss/bootstrap';
-
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
-
-.list-group-item .fa {
-  width: 15px;
-}
-
-.favorite-link {
-  color: #999;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  background-color: transparent;
-  outline: none !important;
-}
-
-.favorite-link:hover {
-  text-decoration: none;
-}
-
-.favorite-link:active {
-  outline: none !important;
-}
-
-.favorite-link.danger:hover i.fa {
-  color: $danger;
-}
-
-.favorite-link.success:hover i.fa {
-  color: $orange;
-}
+@import "custom";
