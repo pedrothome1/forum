@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 trait CanBeFavorited
 {
@@ -14,6 +15,26 @@ trait CanBeFavorited
         static::deleting(function ($model) {
             $model->favorites->each->delete();
         });
+
+        static::addGlobalScope('favorites-count', function (Builder $query) {
+            return $query->withCount('favorites');
+        });
+    }
+
+    /**
+     * Toggle favorite.
+     *
+     * @return Model
+     */
+    public function toggleFavorite()
+    {
+        $attributes = ['user_id' => auth()->id()];
+
+        if (! $this->favorites()->where($attributes)->exists()) {
+            return $this->favorites()->create($attributes);
+        }
+
+        return $this->favorites()->where($attributes)->get()->each->delete();
     }
 
     /**
@@ -24,59 +45,5 @@ trait CanBeFavorited
     public function favorites()
     {
         return $this->morphMany(Favorite::class, 'favorited');
-    }
-
-    /**
-     * Favorite the current model.
-     *
-     * @return Model
-     */
-    public function favorite()
-    {
-        $attributes = ['user_id' => auth()->id()];
-
-        if (! $this->favorites()->where($attributes)->exists()) {
-            return $this->favorites()->create($attributes);
-        }
-    }
-
-    /**
-     * Unfavorite the current model.
-     */
-    public function unfavorite()
-    {
-        $attributes = ['user_id' => auth()->id()];
-
-        $this->favorites()->where($attributes)->get()->each->delete();
-    }
-
-    /**
-     * Determine if the current model has been favorited.
-     *
-     * @return boolean
-     */
-    public function isFavorited()
-    {
-        return !! $this->favorites->where('user_id', auth()->id())->count();
-    }
-
-    /**
-     * Fetch the favorited status as a property.
-     *
-     * @return bool
-     */
-    public function getIsFavoritedAttribute()
-    {
-        return $this->isFavorited();
-    }
-
-    /**
-     * Get the number of favorites for the model.
-     *
-     * @return integer
-     */
-    public function getFavoritesCountAttribute()
-    {
-        return $this->favorites->count();
     }
 }

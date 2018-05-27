@@ -52,4 +52,22 @@ class User extends Authenticatable
     {
         return $this->threads()->save($thread);
     }
+
+    /**
+     * Check whether the user has favorited the given model.
+     *
+     * @param  object  $favorited
+     * @return int
+     */
+    public function hasFavorited($favorited)
+    {
+        if (! is_object($favorited)) {
+            return false;
+        }
+
+        return intval(!! Favorite::where('user_id', $this->id)
+            ->where('favorited_id', $favorited->id)
+            ->where('favorited_type', get_class($favorited))
+            ->count());
+    }
 }

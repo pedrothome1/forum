@@ -10,6 +10,20 @@ class Thread extends Model
     use CanBeFavorited;
 
     /**
+     * The relations to eager load on every query.
+     *
+     * @var array
+     */
+    protected $with = ['user'];
+
+    /**
+     * Appends custom accessors in the query result set.
+     *
+     * @var array
+     */
+    protected $appends = ['identifier'];
+
+    /**
      * Boot the model.
      */
     protected static function boot()

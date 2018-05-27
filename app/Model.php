@@ -34,4 +34,14 @@ class Model extends Eloquent
 
         return '/'.$resource.'/'.$this->{$this->getRouteKeyName()}.$additional;
     }
+
+    /**
+     * Get the name of the model's unique identifier.
+     *
+     * @return string
+     */
+    public function getIdentifierAttribute()
+    {
+        return $this->getRouteKeyName();
+    }
 }

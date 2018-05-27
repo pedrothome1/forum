@@ -10,14 +10,19 @@
 
                         <small class="text-muted">
                             <span class="text-uppercase">
-                                Publicado em {{ $thread->created_at->diffForHumans() }}
+                                Publicado {{ $thread->created_at->diffForHumans() }}
                                 &#8226; por:
                             </span>
                             <a href="#">{{ $thread->user->username }}</a>
                         </small>
                     </div>
 
-                    <favorite-button :favorited="{{ $thread }}" icon="star" color="danger"></favorite-button>
+                    @auth
+                        <favorite-button :model="{{ $thread }}"
+                                         icon="star"
+                                         :favorited="{{ auth()->user()->hasFavorited($thread) }}">
+                        </favorite-button>
+                    @endauth
                 </div>
 
                 <div class="card-body">
@@ -34,9 +39,13 @@
                                 <span class="text-muted"> {{ $reply->created_at->diffForHumans() }}:</span>
                             </div>
 
-                            <button class="favorite-link success">
-                                <i class="fa fa-thumbs-up"></i>
-                            </button>
+                            @auth
+                                <favorite-button :model="{{ $reply }}"
+                                                 :favorited="{{ auth()->user()->hasFavorited($reply) }}"
+                                                 icon="thumbs-up"
+                                                 :show-count="true">
+                                </favorite-button>
+                            @endauth
                         </div>
 
                         <p class="mb-0">
