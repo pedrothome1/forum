@@ -7,6 +7,8 @@ use App\Filters\ThreadFilters;
 
 class Thread extends Model
 {
+    use CanBeFavorited;
+
     /**
      * Boot the model.
      */

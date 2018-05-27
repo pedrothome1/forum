@@ -4,6 +4,8 @@ namespace App;
 
 class Reply extends Model
 {
+    use CanBeFavorited;
+
     /**
     * A Reply belongs to a User
     *

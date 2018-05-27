@@ -1,7 +1,6 @@
-
-.navbar-laravel {
+.custom-navbar {
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid #e1dbd0;
 }
 
 .list-group-item .fa {
@@ -31,4 +30,51 @@
 
 .favorite-link.success:hover i.fa {
   color: $orange;
+}
+
+th {
+  color: #333;
+  font-weight: normal;
+  border-bottom: 1px !important;
+}
+
+.py-1-5 {
+  padding-top: 0.4rem !important;
+  padding-bottom: 0.4rem !important;
+}
+
+.border-bottom-0 {
+  border-bottom-width: 0 !important;
+}
+
+.btn.btn-primary:hover {
+  -webkit-box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42),
+                      0 4px 23px 0 rgba(0, 0, 0, 0.12),
+                      0 8px 10px -5px rgba(116, 96, 238, 0.2);
+  -moz-box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42),
+                   0 4px 23px 0 rgba(0, 0, 0, 0.12),
+                   0 8px 10px -5px rgba(116, 96, 238, 0.2);
+  box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42),
+              0 4px 23px 0 rgba(0, 0, 0, 0.12),
+              0 8px 10px -5px rgba(116, 96, 238, 0.2);
+}
+
+.btn.btn-light {
+  border-color: rgba(0, 0, 0, 0.125);
+}
+
+.btn.btn-light:hover {
+  -webkit-box-shadow: 0 14px 26px -12px rgba(169, 169, 169, 0.42),
+                      0 4px 23px 0 rgba(0, 0, 0, 0.12),
+                      0 8px 10px -5px rgba(169, 169, 169, 0.2);
+  -moz-box-shadow: 0 14px 26px -12px rgba(169, 169, 169, 0.42),
+                  0 4px 23px 0 rgba(0, 0, 0, 0.12),
+                  0 8px 10px -5px rgba(169, 169, 169, 0.2);
+  box-shadow: 0 14px 26px -12px rgba(169, 169, 169, 0.42),
+              0 4px 23px 0 rgba(0, 0, 0, 0.12),
+              0 8px 10px -5px rgba(169, 169, 169, 0.2);
+}
+
+.toast-success {
+  background-color: $success !important;
 }

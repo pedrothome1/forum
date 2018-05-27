@@ -12,7 +12,7 @@ class ThreadFilters extends Filters
      * @var array
      */
     protected $filters = [
-        'mine',
+        'my',
         'solved',
         'popular',
         'unsolved',
@@ -25,7 +25,7 @@ class ThreadFilters extends Filters
      *
      * @return Builder
      */
-    public function mine()
+    public function my()
     {
         if (auth()->check()) {
             return $this->builder->where('user_id', auth()->id());

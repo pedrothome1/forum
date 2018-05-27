@@ -1,6 +1,6 @@
 <template>
     <div class="card">
-        <div class="card-header">
+        <div class="card-header" :class="{ 'border-bottom-0': filtersTab }">
             <ul class="nav nav-tabs card-header-tabs justify-content-center">
                 <li class="nav-item">
                     <a class="nav-link" @click="filtersClicked" :class="{ 'active': filtersTab }" href="#">
@@ -31,7 +31,7 @@
             </a>
 
             <template v-if="user">
-                <a href="#" class="list-group-item list-group-item-action">
+                <a href="/?my=1" class="list-group-item list-group-item-action">
                     <i class="fa fa-lightbulb-o text-danger"></i> Meus tópicos
                 </a>
 
