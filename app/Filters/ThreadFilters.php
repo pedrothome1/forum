@@ -56,7 +56,13 @@ class ThreadFilters extends Filters
 
     public function favorite()
     {
+        if (auth()->check()) {
+            return $this->builder->whereHas('favorites', function ($query) {
+                $query->where('user_id', auth()->id());
+            });
+        }
 
+        return $this->builder;
     }
 
     public function participation()

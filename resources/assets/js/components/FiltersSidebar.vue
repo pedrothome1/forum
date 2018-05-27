@@ -39,7 +39,7 @@
                     <i class="fa fa-code-fork text-danger"></i> Minhas participações
                 </a>
 
-                <a href="#" class="list-group-item list-group-item-action">
+                <a href="/?favorite=1" class="list-group-item list-group-item-action">
                     <i class="fa fa-star text-danger"></i> Meus favoritos
                 </a>
             </template>

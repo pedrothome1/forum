@@ -48281,7 +48281,7 @@ var staticRenderFns = [
       "a",
       {
         staticClass: "list-group-item list-group-item-action",
-        attrs: { href: "#" }
+        attrs: { href: "/?favorite=1" }
       },
       [
         _c("i", { staticClass: "fa fa-star text-danger" }),
