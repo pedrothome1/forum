@@ -14043,8 +14043,8 @@ __WEBPACK_IMPORTED_MODULE_5_toastr___default.a.options = {
     "closeButton": true,
     "debug": false,
     "newestOnTop": true,
-    "progressBar": true,
-    "positionClass": "toast-bottom-right",
+    "progressBar": false,
+    "positionClass": "toast-top-right",
     "preventDuplicates": false,
     "onclick": null,
     "showDuration": "0",
@@ -47908,9 +47908,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.active = !this.active;
             this.active ? this.count++ : this.count--;
 
+            if (this.isThread) {
+                this.flashMessage();
+            }
+
             axios.post(this.endpoint).then(function (response) {
                 _this.sendingRequest = false;
             });
+        },
+        flashMessage: function flashMessage() {
+            if (this.active) {
+                toastr.success('Adicionado aos favoritos.');
+
+                return;
+            }
+
+            toastr.success('Removido dos favoritos.');
         }
     },
 
@@ -47924,6 +47937,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         endpoint: function endpoint() {
             return '/favorites/' + this.model[this.model.identifier];
+        },
+        isThread: function isThread() {
+            return this.model.identifier === 'slug';
         }
     },
 

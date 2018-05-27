@@ -37,6 +37,8 @@ class ThreadsController extends Controller
             $threads->where('category_id', $category->id);
         }
 
+//        dd($threads->toSql());
+
         return $threads->paginate(10);
     }
 

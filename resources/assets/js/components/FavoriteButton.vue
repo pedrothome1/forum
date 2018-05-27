@@ -32,9 +32,23 @@
                 this.active = ! this.active;
                 this.active ? this.count++ : this.count--;
 
+                if (this.isThread) {
+                    this.flashMessage();
+                }
+
                 axios.post(this.endpoint).then(response => {
                     this.sendingRequest = false;
                 });
+            },
+
+            flashMessage() {
+                if (this.active) {
+                    toastr.success('Adicionado aos favoritos.');
+
+                    return;
+                }
+
+                toastr.success('Removido dos favoritos.');
             }
         },
 
@@ -49,6 +63,10 @@
 
             endpoint() {
                 return '/favorites/' + this.model[this.model.identifier];
+            },
+
+            isThread() {
+                return this.model.identifier === 'slug';
             }
         },
 

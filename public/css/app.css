@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);@charset "UTF-8";
 
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -3318,7 +3318,7 @@ button.toast-close-button {
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Montserrat", sans-serif;
+  --font-family-sans-serif: "Open Sans", sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -3357,7 +3357,7 @@ section {
 
 body {
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
@@ -9552,7 +9552,7 @@ button.close {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -9677,7 +9677,7 @@ button.close {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -13764,10 +13764,6 @@ th {
 .btn.btn-danger:hover {
   -webkit-box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2);
   box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2);
-}
-
-.toast-success {
-  background-color: #06d79c !important;
 }
 
 .tag {

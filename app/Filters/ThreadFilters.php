@@ -3,6 +3,7 @@
 namespace App\Filters;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
 
 class ThreadFilters extends Filters
 {
@@ -41,19 +42,29 @@ class ThreadFilters extends Filters
      */
     public function solved()
     {
-        return $this->builder;
+        return $this->builder->where('solved', true);
     }
 
     public function popular()
     {
-
+        return $this->builder;
     }
 
+    /**
+     * Show only the threads that are not solved.
+     *
+     * @return Builder
+     */
     public function unsolved()
     {
-
+        return $this->builder->where('solved', false);
     }
 
+    /**
+     * Show only the threads favorited by the user.
+     *
+     * @return Builder
+     */
     public function favorite()
     {
         if (auth()->check()) {
