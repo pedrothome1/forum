@@ -13989,6 +13989,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 Vue.component('flash', __webpack_require__(42));
+Vue.component('favorite-button', __webpack_require__(59));
 Vue.component('filters-sidebar', __webpack_require__(45));
 
 new Vue({
@@ -47985,7 +47986,12 @@ var render = function() {
                   staticClass: "nav-link",
                   class: { active: _vm.filtersTab },
                   attrs: { href: "#" },
-                  on: { click: _vm.filtersClicked }
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.filtersClicked($event)
+                    }
+                  }
                 },
                 [_vm._v("\n                    Filtros\n                ")]
               )
@@ -47998,7 +48004,12 @@ var render = function() {
                   staticClass: "nav-link",
                   class: { active: _vm.categoriesTab },
                   attrs: { href: "#" },
-                  on: { click: _vm.categoriesClicked }
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.categoriesClicked($event)
+                    }
+                  }
                 },
                 [_vm._v("\n                    Assuntos\n                ")]
               )
@@ -48195,6 +48206,102 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(11)
+/* script */
+var __vue_script__ = __webpack_require__(60)
+/* template */
+var __vue_template__ = __webpack_require__(61)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/FavoriteButton.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-d8415236", Component.options)
+  } else {
+    hotAPI.reload("data-v-d8415236", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 60 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['favorited', 'icon']
+});
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("button", { staticClass: "favorite-link" }, [
+    _c("i", { class: "fa fa-" + _vm.icon })
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-d8415236", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

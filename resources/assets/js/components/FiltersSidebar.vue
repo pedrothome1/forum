@@ -3,13 +3,13 @@
         <div class="card-header" :class="{ 'border-bottom-0': filtersTab }">
             <ul class="nav nav-tabs card-header-tabs justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link" @click="filtersClicked" :class="{ 'active': filtersTab }" href="#">
+                    <a class="nav-link" @click.prevent="filtersClicked" :class="{ 'active': filtersTab }" href="#">
                         Filtros
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" @click="categoriesClicked" :class="{ 'active': categoriesTab }" href="#">
+                    <a class="nav-link" @click.prevent="categoriesClicked" :class="{ 'active': categoriesTab }" href="#">
                         Assuntos
                     </a>
                 </li>

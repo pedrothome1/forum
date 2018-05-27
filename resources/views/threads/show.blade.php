@@ -10,17 +10,14 @@
 
                         <small class="text-muted">
                             <span class="text-uppercase">
-                                Publicado em {{ $thread->created_at->formatLocalized('%d %B %Y') }}
-                                às {{ $thread->created_at->format('H:i') }}
+                                Publicado em {{ $thread->created_at->diffForHumans() }}
                                 &#8226; por:
                             </span>
                             <a href="#">{{ $thread->user->username }}</a>
                         </small>
                     </div>
 
-                    <button class="favorite-link danger">
-                        <i class="fa fa-star"></i>
-                    </button>
+                    <favorite-button :favorited="{{ $thread }}" icon="star" color="danger"></favorite-button>
                 </div>
 
                 <div class="card-body">

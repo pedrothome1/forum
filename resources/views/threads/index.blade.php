@@ -19,12 +19,15 @@
                             <td class="py-1-5">
                                 <a class="text-dark font-weight-bold" href="{{ $thread->path() }}">{{ str_limit($thread->title, 65) }}</a>
                                 <small class="text-muted font-weight-bold d-block">
-                                    por: <a href="#">{{ $thread->user->username }}</a> &#8226; {{ $thread->created_at->diffForHumans() }}
+                                    por: <a href="#">{{ $thread->user->username }}</a> &#8226;
+                                    <a href="{{ $thread->path() }}" class="text-muted">{{ $thread->created_at->diffForHumans() }}</a>
                                 </small>
                             </td>
 
                             <td class="align-middle">{{ $thread->category->name }}</td>
-                            <td class="text-center align-middle">{{ count($thread->replies) }}</td>
+                            <td class="text-center align-middle">
+                                <span class="tag">{{ count($thread->replies) }}</span>
+                            </td>
                         </tr>
                     @empty
                         <tr>
