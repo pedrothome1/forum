@@ -44,15 +44,15 @@
                 </a>
             </template>
 
-            <a href="#" class="list-group-item list-group-item-action">
+            <a href="/?popular=1" class="list-group-item list-group-item-action">
                 <i class="fa fa-fire text-danger"></i> Mais populares
             </a>
 
-            <a href="#" class="list-group-item list-group-item-action">
+            <a href="/?solved=1" class="list-group-item list-group-item-action">
                 <i class="fa fa-fire text-danger"></i> Solucionados
             </a>
 
-            <a href="#" class="list-group-item list-group-item-action">
+            <a href="/?unsolved=1" class="list-group-item list-group-item-action">
                 <i class="fa fa-lightbulb-o text-danger"></i> Não solucionados
             </a>
         </ul>

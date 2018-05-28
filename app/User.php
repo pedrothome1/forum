@@ -65,9 +65,20 @@ class User extends Authenticatable
             return false;
         }
 
-        return intval(!! Favorite::where('user_id', $this->id)
+        return Favorite::where('user_id', $this->id)
             ->where('favorited_id', $favorited->id)
             ->where('favorited_type', get_class($favorited))
-            ->count());
+            ->count();
+    }
+
+    /**
+     * Determine if the user owns the given model.
+     *
+     * @param  object  $model
+     * @return bool
+     */
+    public function owns($model)
+    {
+        return $this->id == optional($model)->user_id;
     }
 }

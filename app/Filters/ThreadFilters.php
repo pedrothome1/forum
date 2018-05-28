@@ -3,7 +3,6 @@
 namespace App\Filters;
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\DB;
 
 class ThreadFilters extends Filters
 {
@@ -32,7 +31,7 @@ class ThreadFilters extends Filters
             return $this->builder->where('user_id', auth()->id());
         }
 
-        return $this->builder;
+        return $this->builder->latest();
     }
 
     /**
@@ -42,12 +41,17 @@ class ThreadFilters extends Filters
      */
     public function solved()
     {
-        return $this->builder->where('solved', true);
+        return $this->builder->where('solved', true)->latest();
     }
 
+    /**
+     * Show the threads sorted by the popularity.
+     *
+     * @return Builder
+     */
     public function popular()
     {
-        return $this->builder;
+        return $this->builder->orderBy('replies_count', 'desc');
     }
 
     /**
@@ -57,7 +61,7 @@ class ThreadFilters extends Filters
      */
     public function unsolved()
     {
-        return $this->builder->where('solved', false);
+        return $this->builder->where('solved', false)->latest();
     }
 
     /**
@@ -70,10 +74,10 @@ class ThreadFilters extends Filters
         if (auth()->check()) {
             return $this->builder->whereHas('favorites', function ($query) {
                 $query->where('user_id', auth()->id());
-            });
+            })->latest();
         }
 
-        return $this->builder;
+        return $this->builder->latest();
     }
 
     public function participation()

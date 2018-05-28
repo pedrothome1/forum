@@ -13,6 +13,7 @@
                                 Publicado {{ $thread->created_at->diffForHumans() }}
                                 &#8226; por:
                             </span>
+
                             <a href="#">{{ $thread->user->username }}</a>
                         </small>
                     </div>
@@ -28,6 +29,14 @@
                 <div class="card-body">
                     {{ $thread->body }}
                 </div>
+
+                @can ('update', $thread)
+                    <div class="card-footer thread-footer d-flex justify-content-end">
+                        <a href="{{ $thread->path('edit') }}" class="action-link">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                    </div>
+                @endcan
             </div>
 
             @foreach($replies as $reply)
@@ -52,6 +61,16 @@
                             {{ $reply->body }}
                         </p>
                     </div>
+
+                    {{--<div class="card-footer thread-footer d-flex justify-content-end">--}}
+                        {{--<button class="action-link mr-2">--}}
+                            {{--<i class="fa fa-trash"></i>--}}
+                        {{--</button>--}}
+
+                        {{--<button class="action-link">--}}
+                            {{--<i class="fa fa-pencil"></i>--}}
+                        {{--</button>--}}
+                    {{--</div>--}}
                 </div>
             @endforeach
 
@@ -80,7 +99,7 @@
             @else 
                 <div>
                     <p class="text-center my-3">
-                        Você precisa estar logado para responder. <a href="/login">Logar-se</a>.
+                        Você precisa estar autenticado para responder: <a href="/login">Entrar</a>
                     </p>
                 </div>
             @endauth

@@ -26,7 +26,7 @@
 
                             <td class="align-middle">{{ $thread->category->name }}</td>
                             <td class="text-center align-middle">
-                                <span class="tag">{{ count($thread->replies) }}</span>
+                                <span class="badge badge-pill badge-success my-badge">{{ count($thread->replies) }}</span>
                             </td>
                         </tr>
                     @empty

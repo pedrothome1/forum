@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Fórum') }}</title>
 
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
@@ -23,11 +23,9 @@
         <flash type="{{ session('type') }}" message="{{ session('status') }}"></flash>
     </div>
 
-    @auth
-        <script>
-            window.User = @json(auth()->user())
-        </script>
-    @endauth
+    <script>
+        window.User = @json(auth()->user());
+    </script>
 
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

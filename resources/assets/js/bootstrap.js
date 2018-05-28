@@ -4,6 +4,7 @@ import Popper from 'popper.js';
 import jQuery from 'jquery';
 import 'bootstrap';
 import toastr from 'toastr';
+import swal from 'sweetalert';
 import axios from 'axios';
 
 window.Vue = Vue;
@@ -38,3 +39,12 @@ toastr.options = {
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
 };
+
+// swal({
+//     buttons: ['Não', 'Sim'],
+//     dangerMode: true,
+//     icon: 'warning',
+//     title: 'Você tem certeza?'
+// }).then(yes => {
+//     if (yes) alert('Submitting the form')
+// });

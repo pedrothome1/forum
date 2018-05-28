@@ -13706,25 +13706,45 @@ a.text-dark:focus {
   width: 15px;
 }
 
-.favorite-link {
-  color: #999;
+.favorite-link,
+.action-link {
+  color: #999 !important;
   border: none;
   cursor: pointer;
+  display: inline-block;
   text-decoration: none;
   background-color: transparent;
   outline: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
-.favorite-link:hover {
+.action-link {
+  font-size: 1.2rem;
+}
+
+.favorite-link:hover,
+.action-link:hover {
   text-decoration: none;
 }
 
-.favorite-link:active {
+.favorite-link:active,
+.action-link:active {
   outline: none !important;
 }
 
 .favorite-link:hover i.fa {
-  color: #ef5350;
+  color: #ef5350 !important;
+}
+
+.action-link:hover i.fa {
+  color: #17a2b8;
+}
+
+.thread-footer {
+  background-color: transparent;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 th {
@@ -13766,11 +13786,11 @@ th {
   box-shadow: 0 14px 26px -12px rgba(239, 83, 80, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(239, 83, 80, 0.2);
 }
 
-.tag {
-  padding: 0.2rem 0.6rem;
+.badge-success {
   background-color: #05b986;
-  color: #fff;
-  font-weight: 600;
-  border-radius: 10px;
+}
+
+.my-badge {
+  font-size: .9rem;
 }
 

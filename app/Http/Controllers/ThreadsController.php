@@ -37,8 +37,6 @@ class ThreadsController extends Controller
             $threads->where('category_id', $category->id);
         }
 
-//        dd($threads->toSql());
-
         return $threads->paginate(10);
     }
 
@@ -62,7 +60,7 @@ class ThreadsController extends Controller
         $this->validate(request(), [
             'title' => 'required|string',
             'body' => 'required|string',
-            'category_id' => 'required|numeric|min:1|exists:categories,id'
+            'category_id' => 'required|numeric|exists:categories,id'
         ]);
 
         $thread = auth()->user()->publish(
@@ -95,7 +93,7 @@ class ThreadsController extends Controller
      */
     public function edit(Thread $thread)
     {
-        //
+        return view('threads.edit', compact('thread'));
     }
 
     /**
@@ -103,10 +101,28 @@ class ThreadsController extends Controller
      *
      * @param  \App\Thread  $thread
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function update(Thread $thread)
     {
-        //
+        $this->authorize('update', $thread);
+
+        $this->validate(request(), [
+            'title' => 'required|string',
+            'body' => 'required|string',
+            'category_id' => 'required|numeric|exists:categories,id'
+        ]);
+
+        $thread->update([
+            'title' => request('title'),
+            'body' => request('body'),
+            'category_id' => request('category_id'),
+            'slug' => request('title')
+        ]);
+
+        $this->flash('Tópico atualizado com sucesso.');
+
+        return redirect($thread->path());
     }
 
     /**
@@ -114,9 +130,16 @@ class ThreadsController extends Controller
      *
      * @param  \App\Thread  $thread
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function destroy(Thread $thread)
     {
-        //
+        $this->authorize('delete', $thread);
+
+        $thread->delete();
+
+        $this->flash('Tópico excluído com sucesso.');
+
+        return redirect()->home();
     }
 }
