@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="card-body">
-                    {{ $thread->body }}
+                    {!! $thread->body !!}
                 </div>
 
                 @can ('update', $thread)

@@ -10,7 +10,7 @@
 
                         <div class="form-group">
                             <label for="category_id">Assunto:</label>
-                            <select class="form-control{{ $errors->has('category_id') ? ' is-invalid' : '' }}" name="category_id" id="category_id">
+                            <select class="form-control{{ $errors->has('category_id') ? ' is-invalid' : '' }}" name="category_id" id="category_id" required>
                                 <option value="" selected>Escolha um assunto...</option>
 
                                 @foreach ($categories as $category)
@@ -29,7 +29,7 @@
 
                         <div class="form-group">
                             <label for="title">Título:</label>
-                            <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" id="title" name="title" value="{{ old('title') }}" required>
+                            <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" id="title" name="title" value="{{ old('title') }}"required>
 
                             @if ($errors->has('title'))
                                 <span class="invalid-feedback">
@@ -40,7 +40,9 @@
 
                         <div class="form-group">
                             <label for="body">Detalhes do tópico:</label>
-                            <textarea name="body" class="form-control{{ $errors->has('body') ? ' is-invalid' : '' }}" id="body" rows="5" required>{{ old('body') }}</textarea>
+
+                            <input id="body" type="hidden" name="body"  value="{{ old('body') }}" required>
+                            <trix-editor input="body"></trix-editor>
 
                             @if ($errors->has('body'))
                                 <span class="invalid-feedback">
@@ -50,13 +52,14 @@
                         </div>
 
                         <div class="form-group">
+                            <button type="submit" class="btn btn-primary">
+                                Publicar
+                            </button>
+                            
                             <a href="/" class="btn btn-light">
                                 Cancelar
                             </a>
 
-                            <button type="submit" class="btn btn-primary">
-                                Publicar
-                            </button>
                         </div>
                     </form>
                 </div>
