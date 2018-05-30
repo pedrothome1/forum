@@ -38,6 +38,29 @@ trait CanBeFavorited
     }
 
     /**
+     * Check whether the model has been favorited by the authenticated user.
+     *
+     * @return int
+     */
+    public function getFavoritedByUserAttribute()
+    {
+        return auth()->check() ? (int) $this->favoritedByUser() : 0;
+    }
+
+    /**
+     * Check whether the model has been favorited by the given user.
+     *
+     * @param  User|null  $user
+     * @return bool
+     */
+    public function favoritedByUser(User $user = null)
+    {
+        $user = $user ?: auth()->user();
+
+        return $this->favorites()->where('user_id', $user->id)->exists();
+    }
+
+    /**
      * A model can be favorited.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany

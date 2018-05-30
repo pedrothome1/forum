@@ -1,7 +1,7 @@
 <template>
     <div>
         <input id="trix" type="hidden" :name="name"  :value="value">
-        <trix-editor :class="{ 'is-invalid': error }" input="trix" :placeholder="placeholder"></trix-editor>
+        <trix-editor ref="trix" :class="{ 'is-invalid': error }" input="trix" :placeholder="placeholder"></trix-editor>
 
         <span v-if="error" class="invalid-feedback d-block">
             <strong v-text="error"></strong>
@@ -13,7 +13,13 @@
     import Trix from 'trix';
 
     export default {
-        props: ['name', 'value', 'error', 'placeholder']
+        props: ['name', 'value', 'error', 'placeholder'],
+
+        mounted() {
+            this.$refs.trix.addEventListener('trix-change', e => {
+                this.$emit('input', e.target.innerHTML);
+            });
+        }
     }
 </script>
 
@@ -39,7 +45,7 @@
 
     trix-editor {
         border-color: #ced4da !important;
-        min-height: 150px;
+        /*min-height: 150px;*/
         background-color: #fff;
     }
 

@@ -2,10 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Reply;
 use App\Thread;
 
 class RepliesController extends Controller
 {
+    /**
+     * Return the replies of the given thread.
+     *
+     * @param  Thread  $thread
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public function index(Thread $thread)
+    {
+        return $thread->replies()->paginate(10);
+    }
+
     /**
      * Add a reply to a thread.
      *
@@ -26,5 +38,35 @@ class RepliesController extends Controller
         }
 
     	return back();
+    }
+
+    /**
+     * Update the given reply.
+     *
+     * @param  Reply  $reply
+     * @return mixed
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function update(Reply $reply)
+    {
+        $this->authorize('update', $reply);
+
+        $this->validate(request(), ['body' => 'required']);
+
+        return tap($reply)->update(request(['body']));
+    }
+
+    /**
+     * Remove the given reply from the database.
+     *
+     * @param  Reply  $reply
+     * @return mixed
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function destroy(Reply $reply)
+    {
+        $this->authorize('delete', $reply);
+
+        return tap($reply)->delete();
     }
 }

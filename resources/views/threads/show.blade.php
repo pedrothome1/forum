@@ -31,7 +31,7 @@
                 </div>
 
                 @can ('update', $thread)
-                    <div class="card-footer thread-footer d-flex justify-content-end">
+                    <div class="card-footer custom-card-footer d-flex justify-content-end">
                         <a href="{{ $thread->path('edit') }}" class="action-link">
                             <i class="fa fa-pencil"></i>
                         </a>
@@ -39,28 +39,30 @@
                 @endcan
             </div>
 
-            @foreach($replies as $reply)
-                <div class="card my-3">
-                    <div class="card-body">
-                        <div class="mb-0 d-flex justify-content-between align-items-center">
-                            <div>
-                                <a href="#" class="font-weight-bold">{{ $reply->user->username }}</a>
-                                <span class="text-muted"> {{ $reply->created_at->diffForHumans() }}:</span>
-                            </div>
+            <replies></replies>
 
-                            @auth
-                                <favorite-button :model="{{ $reply }}"
-                                                 :favorited="{{ auth()->user()->hasFavorited($reply) }}"
-                                                 icon="thumbs-up"
-                                                 :show-count="true">
-                                </favorite-button>
-                            @endauth
-                        </div>
+            {{--@foreach($replies as $reply)--}}
+                {{--<div class="card my-3">--}}
+                    {{--<div class="card-body">--}}
+                        {{--<div class="mb-0 d-flex justify-content-between align-items-center">--}}
+                            {{--<div>--}}
+                                {{--<a href="#" class="font-weight-bold">{{ $reply->user->username }}</a>--}}
+                                {{--<span class="text-muted"> {{ $reply->created_at->diffForHumans() }}:</span>--}}
+                            {{--</div>--}}
 
-                        <p class="mb-0">
-                            {!! $reply->body !!}
-                        </p>
-                    </div>
+                            {{--@auth--}}
+                                {{--<favorite-button :model="{{ $reply }}"--}}
+                                                 {{--:favorited="{{ auth()->user()->hasFavorited($reply) }}"--}}
+                                                 {{--icon="thumbs-up"--}}
+                                                 {{--:show-count="true">--}}
+                                {{--</favorite-button>--}}
+                            {{--@endauth--}}
+                        {{--</div>--}}
+
+                        {{--<p class="mb-0">--}}
+                            {{--{!! $reply->body !!}--}}
+                        {{--</p>--}}
+                    {{--</div>--}}
 
                     {{--<div class="card-footer thread-footer d-flex justify-content-end">--}}
                         {{--<button class="action-link mr-2">--}}
@@ -71,10 +73,10 @@
                             {{--<i class="fa fa-pencil"></i>--}}
                         {{--</button>--}}
                     {{--</div>--}}
-                </div>
-            @endforeach
+                {{--</div>--}}
+            {{--@endforeach--}}
 
-            {{ $replies->links() }}
+            {{--{{ $replies->links() }}--}}
 
             @auth
                 <form action="/threads/{{ $thread->slug }}/replies" method="POST" class="my-3">

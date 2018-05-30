@@ -20,7 +20,7 @@ class Reply extends Model
      *
      * @var array
      */
-    protected $appends = ['identifier'];
+    protected $appends = ['identifier', 'favoritedByUser'];
 
 
     /**

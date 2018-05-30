@@ -21,7 +21,7 @@
 }
 
 .action-link {
-  font-size: 1.2rem;
+  font-size: 1.05rem;
 }
 
 .favorite-link:hover,
@@ -42,11 +42,10 @@
   color: $info;
 }
 
-.thread-footer {
+.custom-card-footer {
   background-color: transparent;
   padding-top: 0;
   padding-bottom: 0;
-  //border-top: none;
 }
 
 th {
