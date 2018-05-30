@@ -77,16 +77,6 @@ class Thread extends Model
     }
 
     /**
-     * Get the replies count attribute.
-     *
-     * @return int
-     */
-    public function getRepliesCountAttribute()
-    {
-        return $this->replies()->count();
-    }
-
-    /**
      * Get the route key for the given thread.
      *
      * @return string
