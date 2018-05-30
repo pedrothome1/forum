@@ -5,14 +5,14 @@
             <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
                 <span class="page-link" aria-hidden="true">
                     <span class="d-none d-md-inline-block">&lsaquo;</span>
-                    <span class="d-inline-block d-md-none">&laquo;</span>
+                    <span class="d-inline-block d-md-none">&laquo; Anterior</span>
                 </span>
             </li>
         @else
             <li class="page-item">
                 <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')">
                     <span class="d-none d-md-inline-block">&lsaquo;</span>
-                    <span class="d-inline-block d-md-none">&laquo;</span>
+                    <span class="d-inline-block d-md-none">&laquo; Anterior</span>
                 </a>
             </li>
         @endif
@@ -41,14 +41,14 @@
             <li class="page-item">
                 <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">
                     <span class="d-none d-md-inline-block">&rsaquo;</span>
-                    <span class="d-inline-block d-md-none">&raquo;</span>
+                    <span class="d-inline-block d-md-none">Próximo &raquo;</span>
                 </a>
             </li>
         @else
             <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
                 <span class="page-link" aria-hidden="true">
                     <span class="d-none d-md-inline-block">&rsaquo;</span>
-                    <span class="d-inline-block d-md-none">&raquo;</span>
+                    <span class="d-inline-block d-md-none">Próximo &raquo;</span>
                 </span>
             </li>
         @endif

@@ -68,10 +68,11 @@
 
             destroy() {
                 swal({
-                    buttons: ['Não', 'Sim'],
-                    dangerMode: true,
+                    buttons: ['Não', 'Sim, apague'],
                     icon: 'warning',
-                    title: 'Você tem certeza?'
+                    dangerMode: true,
+                    title: 'Você tem certeza?',
+                    text: 'Isso irá remover seu comentário.'
                 }).then(yes => {
                     if (! yes) {
                         return;

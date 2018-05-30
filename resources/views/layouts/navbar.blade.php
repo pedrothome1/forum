@@ -29,9 +29,9 @@
                             {{ Auth::user()->username }} <span class="caret"></span>
                         </a>
 
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu animated flipInY" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">
-                                Meu perfil
+                                <i class="fa fa-user text-danger"></i> Meu perfil
                             </a>
 
                             <div class="dropdown-divider"></div>
@@ -39,7 +39,7 @@
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
-                                Sair
+                                <i class="fa fa-sign-out text-danger"></i> Sair
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

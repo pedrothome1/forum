@@ -27,33 +27,33 @@
 
         <ul v-show="filtersTab" class="list-group list-group-flush">
             <a href="/" class="list-group-item list-group-item-action">
-                <i class="fa fa-globe text-danger"></i> Todo os tópicos
+                <i class="fa fa-globe fa-fw text-danger"></i> Todo os tópicos
             </a>
 
             <template v-if="app.signedIn">
                 <a href="/?my=1" class="list-group-item list-group-item-action">
-                    <i class="fa fa-lightbulb-o text-danger"></i> Meus tópicos
+                    <i class="fa fa-lightbulb-o fa-fw text-danger"></i> Meus tópicos
                 </a>
 
                 <a href="#" class="list-group-item list-group-item-action">
-                    <i class="fa fa-code-fork text-danger"></i> Minhas participações
+                    <i class="fa fa-code-fork fa-fw text-danger"></i> Minhas participações
                 </a>
 
                 <a href="/?favorite=1" class="list-group-item list-group-item-action">
-                    <i class="fa fa-star text-danger"></i> Meus favoritos
+                    <i class="fa fa-star fa-fw text-danger"></i> Meus favoritos
                 </a>
             </template>
 
             <a href="/?popular=1" class="list-group-item list-group-item-action">
-                <i class="fa fa-fire text-danger"></i> Mais populares
+                <i class="fa fa-fire fa-fw text-danger"></i> Mais populares
             </a>
 
             <a href="/?solved=1" class="list-group-item list-group-item-action">
-                <i class="fa fa-fire text-danger"></i> Solucionados
+                <i class="fa fa-fire fa-fw text-danger"></i> Solucionados
             </a>
 
             <a href="/?unsolved=1" class="list-group-item list-group-item-action">
-                <i class="fa fa-lightbulb-o text-danger"></i> Não solucionados
+                <i class="fa fa-lightbulb-o fa-fw text-danger"></i> Não solucionados
             </a>
         </ul>
     </div>

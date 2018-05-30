@@ -27,6 +27,8 @@
                 axios.get(this.endpoint(page)).then(({data}) => {
                     this.items = data.data;
                     this.serverData = data;
+
+                    window.scrollTo(0, 0);
                 });
             },
 

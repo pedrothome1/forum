@@ -37,7 +37,7 @@ class ThreadsController extends Controller
             $threads->where('category_id', $category->id);
         }
 
-        return $threads->paginate(10);
+        return $threads->paginate(15);
     }
 
     /**
@@ -94,6 +94,8 @@ class ThreadsController extends Controller
      */
     public function edit(Thread $thread)
     {
+        $this->authorize('update', $thread);
+        
         return view('threads.edit', compact('thread'));
     }
 

@@ -44,6 +44,7 @@
     }
 
     trix-editor {
+        margin-top: -7px;
         border-color: #ced4da !important;
         /*min-height: 150px;*/
         background-color: #fff;

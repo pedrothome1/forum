@@ -3,10 +3,6 @@
   border-bottom: 1px solid #e1dbd0;
 }
 
-.list-group-item .fa {
-  width: 15px;
-}
-
 .favorite-link,
 .action-link {
   color: #999;
@@ -114,4 +110,9 @@ th {
 
 .my-badge {
   font-size: .9rem;
+}
+
+.swal-footer {
+  display: flex;
+  justify-content: center;
 }
