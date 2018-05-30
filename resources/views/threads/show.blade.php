@@ -58,7 +58,7 @@
                         </div>
 
                         <p class="mb-0">
-                            {{ $reply->body }}
+                            {!! $reply->body !!}
                         </p>
                     </div>
 
@@ -81,13 +81,9 @@
                     @csrf
 
                     <div class="form-group">
-                        <textarea name="reply_body" rows="4" class="form-control {{ $errors->has('reply_body') ? 'is-invalid' : '' }}" placeholder="Sua resposta aqui..."></textarea>
-
-                        @if($errors->has('reply_body'))
-                            <span class="invalid-feedback">
-                                <strong>{{ $errors->first('reply_body') }}</strong>
-                            </span>
-                        @endif
+                        <text-editor name="reply_body"
+                                     error="{{ $errors->first('reply_body') }}"
+                                     placeholder="O que você achou dessa postagem?"></text-editor>
                     </div>
 
                     <div class="form-group">

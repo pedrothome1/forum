@@ -1,7 +1,7 @@
 <template>
     <div>
         <input id="trix" type="hidden" :name="name"  :value="value">
-        <trix-editor :class="{ 'is-invalid': error }" input="trix"></trix-editor>
+        <trix-editor :class="{ 'is-invalid': error }" input="trix" :placeholder="placeholder"></trix-editor>
 
         <span v-if="error" class="invalid-feedback d-block">
             <strong v-text="error"></strong>
@@ -13,7 +13,7 @@
     import Trix from 'trix';
 
     export default {
-        props: ['name', 'value', 'error']
+        props: ['name', 'value', 'error', 'placeholder']
     }
 </script>
 
@@ -21,10 +21,11 @@
     .trix-button {
         box-shadow: none !important;
         border: none !important;
+        background-color: #fff !important;
     }
 
     .trix-button:hover {
-        background-color: #dee2e6;
+        background-color: #dee2e6 !important;
         transition: .3s;
     }
 
@@ -39,6 +40,7 @@
     trix-editor {
         border-color: #ced4da !important;
         min-height: 150px;
+        background-color: #fff;
     }
 
     trix-editor.is-invalid {
