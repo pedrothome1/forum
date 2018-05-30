@@ -14256,28 +14256,3 @@ th {
   font-size: .9rem;
 }
 
-.trix-button {
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
-  border: none !important;
-}
-
-.trix-button:hover {
-  background-color: #dee2e6;
-  -webkit-transition: .3s;
-  transition: .3s;
-}
-
-.trix-button-group {
-  border-color: #ced4da !important;
-}
-
-.trix-active {
-  background-color: #ced4da !important;
-}
-
-trix-editor {
-  border-color: #ced4da !important;
-  height: 200px;
-}
-

@@ -116,26 +116,3 @@ th {
 .my-badge {
   font-size: .9rem;
 }
-
-.trix-button {
-  box-shadow: none !important;
-  border: none !important;
-}
-
-.trix-button:hover {
-  background-color: $gray-300;
-  transition: .3s;
-}
-
-.trix-button-group {
-  border-color: $input-border-color !important;
-}
-
-.trix-active {
-  background-color: $gray-400 !important;
-}
-
-trix-editor {
-  border-color: $input-border-color !important;
-  height: 200px;
-}

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Support\Str;
 use App\Filters\ThreadFilters;
+use Stevebauman\Purify\Facades\Purify;
 
 class Thread extends Model
 {
@@ -65,6 +66,27 @@ class Thread extends Model
     }
 
     /**
+     * Get the body attribute.
+     *
+     * @param  $body
+     * @return mixed
+     */
+    public function getBodyAttribute($body)
+    {
+        return Purify::clean($body);
+    }
+
+    /**
+     * Get the replies count attribute.
+     *
+     * @return int
+     */
+    public function getRepliesCountAttribute()
+    {
+        return $this->replies()->count();
+    }
+
+    /**
      * Get the route key for the given thread.
      *
      * @return string
@@ -102,5 +124,16 @@ class Thread extends Model
     public function replies()
     {
         return $this->hasMany(Reply::class);
+    }
+
+    /**
+     * Add a reply to the thread
+     *
+     * @param  array  $reply
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function addReply(array $reply)
+    {
+        return $this->replies()->create($reply);
     }
 }

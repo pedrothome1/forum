@@ -24,7 +24,11 @@
     </div>
 
     <script>
-        window.User = @json(auth()->user());
+        window.App = {!! json_encode([
+            'csrfToken' => csrf_token(),
+            'user' => auth()->user(),
+            'signedIn' => auth()->check()
+        ]) !!};
     </script>
 
     <script src="{{ asset('js/app.js') }}"></script>

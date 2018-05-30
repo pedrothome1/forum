@@ -5,63 +5,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    <form method="POST" action="/threads">
-                        @csrf
-
-                        <div class="form-group">
-                            <label for="category_id">Assunto:</label>
-                            <select class="form-control{{ $errors->has('category_id') ? ' is-invalid' : '' }}" name="category_id" id="category_id" required>
-                                <option value="" selected>Escolha um assunto...</option>
-
-                                @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}" {{ $category->id == old('category_id') ? 'selected' : '' }}>
-                                        {{ $category->name }}
-                                    </option>
-                                @endforeach
-                            </select>
-
-                            @if ($errors->has('category_id'))
-                                <span class="invalid-feedback">
-                                    <strong>{{ $errors->first('category_id') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-
-                        <div class="form-group">
-                            <label for="title">Título:</label>
-                            <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" id="title" name="title" value="{{ old('title') }}"required>
-
-                            @if ($errors->has('title'))
-                                <span class="invalid-feedback">
-                                    <strong>{{ $errors->first('title') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-
-                        <div class="form-group">
-                            <label for="body">Detalhes do tópico:</label>
-
-                            <input id="body" type="hidden" name="body"  value="{{ old('body') }}" required>
-                            <trix-editor input="body"></trix-editor>
-
-                            @if ($errors->has('body'))
-                                <span class="invalid-feedback">
-                                    <strong>{{ $errors->first('body') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">
-                                Publicar
-                            </button>
-                            
-                            <a href="/" class="btn btn-light">
-                                Cancelar
-                            </a>
-
-                        </div>
-                    </form>
+                    @include('threads.form', ['button' => 'Publicar'])
                 </div>
             </div>
         </div>

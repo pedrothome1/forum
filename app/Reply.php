@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Stevebauman\Purify\Facades\Purify;
+
 class Reply extends Model
 {
     use CanBeFavorited;
@@ -36,11 +38,18 @@ class Reply extends Model
 
         static::deleted(function ($reply) {
             $reply->thread->decrement('replies_count');
-
-            if ($reply->isBest()) {
-                $reply->thread->update(['best_reply_id' => null]);
-            }
         });
+    }
+
+    /**
+     * Get the body attribute.
+     *
+     * @param  $body
+     * @return mixed
+     */
+    public function getBodyAttribute($body)
+    {
+        return Purify::clean($body);
     }
 
     /**

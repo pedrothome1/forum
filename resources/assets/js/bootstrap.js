@@ -6,7 +6,6 @@ import 'bootstrap';
 import toastr from 'toastr';
 import swal from 'sweetalert';
 import axios from 'axios';
-import Trix from 'trix';
 
 window.Vue = Vue;
 window._ = _;
@@ -14,7 +13,6 @@ window.Popper = Popper.default;
 window.$ = window.jQuery = jQuery;
 window.toastr = toastr;
 window.axios = axios;
-window.trix = trix;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 

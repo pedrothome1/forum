@@ -23,14 +23,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
-        'id',
-        'name',
-        'password',
-        'created_at',
-        'updated_at',
-        'remember_token',
-    ];
+    protected $hidden = ['email', 'password', 'remember_token'];
 
     /**
      * A user has many threads.
@@ -45,12 +38,12 @@ class User extends Authenticatable
     /**
      * Publish a thread.
      *
-     * @param  Thread  $thread
+     * @param  array  $thread
      * @return mixed
      */
-    public function publish(Thread $thread)
+    public function publish(array $thread)
     {
-        return $this->threads()->save($thread);
+        return $this->threads()->create($thread);
     }
 
     /**

@@ -43,11 +43,12 @@ class ThreadsController extends Controller
     /**
      * Show the form for creating a new thread.
      *
+     * @param  Thread  $thread
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Thread $thread)
     {
-        return view('threads.create');
+        return view('threads.create', compact('thread'));
     }
 
     /**
@@ -64,7 +65,7 @@ class ThreadsController extends Controller
         ]);
 
         $thread = auth()->user()->publish(
-            new Thread(request(['category_id', 'title', 'body']))
+            request(['category_id', 'title', 'body'])
         );
 
         $this->flash('Tópico criado com sucesso.');

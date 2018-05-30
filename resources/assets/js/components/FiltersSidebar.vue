@@ -30,7 +30,7 @@
                 <i class="fa fa-globe text-danger"></i> Todo os tópicos
             </a>
 
-            <template v-if="user">
+            <template v-if="app.signedIn">
                 <a href="/?my=1" class="list-group-item list-group-item-action">
                     <i class="fa fa-lightbulb-o text-danger"></i> Meus tópicos
                 </a>
@@ -65,7 +65,6 @@
 
         data() {
             return {
-                user: window.User,
                 filtersTab: true,
                 categoriesTab: false
             };
