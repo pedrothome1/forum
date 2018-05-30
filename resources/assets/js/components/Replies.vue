@@ -4,17 +4,24 @@
             <reply :reply="reply" @deleted="remove(index)"></reply>
         </div>
 
-        <paginator :data-set="serverData" @new-page="fetch"></paginator>
+        <div>
+            <paginator :data-set="serverData" @new-page="fetch"></paginator>
+        </div>
+
+        <div>
+            <new-reply @created="add"></new-reply>
+        </div>
     </div>
 </template>
 
 <script>
     import Reply from './Reply';
+    import NewReply from './NewReply';
     import Paginator from './Paginator';
     import collection from '../mixins/collection';
 
     export default {
-        components: { Reply, Paginator },
+        components: { Reply, NewReply, Paginator },
 
         mixins: [collection],
 

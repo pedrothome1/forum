@@ -39,31 +39,9 @@
                 @endcan
             </div>
 
-            <replies></replies>
-
-            @auth
-                <form action="/threads/{{ $thread->slug }}/replies" method="POST" class="my-3">
-                    @csrf
-
-                    <div class="form-group">
-                        <text-editor name="reply_body"
-                                     error="{{ $errors->first('reply_body') }}"
-                                     placeholder="O que você achou dessa postagem?"></text-editor>
-                    </div>
-
-                    <div class="form-group">
-                        <button class="btn btn-primary">
-                            Responder
-                        </button>
-                    </div>
-                </form>
-            @else 
-                <div>
-                    <p class="text-center my-3">
-                        Você precisa estar autenticado para responder: <a href="/login">Entrar</a>
-                    </p>
-                </div>
-            @endauth
+            <div>
+                <replies></replies>
+            </div>
         </div>
 
         <div class="col-md-4">

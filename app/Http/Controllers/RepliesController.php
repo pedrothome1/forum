@@ -26,15 +26,15 @@ class RepliesController extends Controller
      */
     public function store(Thread $thread)
     {
-        $this->validate(request(), ['reply_body' => 'required']);
+        $this->validate(request(), ['body' => 'required']);
 
         $reply = $thread->addReply([
-            'body' => request('reply_body'),
+            'body' => request('body'),
             'user_id' => auth()->id(),
         ]);
 
         if (request()->expectsJson()) {
-            return $reply;
+            return $reply->load('user');
         }
 
     	return back();
