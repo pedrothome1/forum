@@ -14209,30 +14209,6 @@ a.text-dark:focus {
   color: #17a2b8;
 }
 
-.custom-card-footer {
-  background-color: transparent;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-th {
-  color: #333;
-  font-size: 0.7875rem;
-  font-weight: normal;
-  border-bottom: 1px !important;
-  text-transform: uppercase;
-  letter-spacing: .08rem;
-}
-
-.py-1-5 {
-  padding-top: 0.4rem !important;
-  padding-bottom: 0.4rem !important;
-}
-
-.border-bottom-0 {
-  border-bottom-width: 0 !important;
-}
-
 .btn.btn-primary:hover {
   -webkit-box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
   box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
@@ -14262,6 +14238,30 @@ th {
   font-size: .9rem;
 }
 
+.custom-card-footer {
+  background-color: transparent;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+th {
+  color: #333;
+  font-size: 0.7875rem;
+  font-weight: normal;
+  border-bottom: 1px !important;
+  text-transform: uppercase;
+  letter-spacing: .08rem;
+}
+
+.py-1-5 {
+  padding-top: 0.4rem !important;
+  padding-bottom: 0.4rem !important;
+}
+
+.border-bottom-0 {
+  border-bottom-width: 0 !important;
+}
+
 .swal-footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -14269,5 +14269,9 @@ th {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+[v-cloak] {
+  display: none;
 }
 

@@ -24,6 +24,7 @@
         mounted() {
             this.$refs.trix.addEventListener('trix-change', e => {
                 this.$emit('input', e.target.innerHTML);
+                this.$emit('keydown', e.target.innerHTML);
             });
         }
     }

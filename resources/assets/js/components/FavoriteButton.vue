@@ -13,8 +13,7 @@
         props: {
             model: Object,
             icon: String,
-            showCount: { type: Boolean, default: false },
-            favorited: { type: Number, required: true }
+            showCount: { type: Boolean, default: false }
         },
 
         data() {
@@ -71,7 +70,7 @@
         },
 
         created() {
-            this.active = !! this.favorited;
+            this.active = !! this.model.favoritedByUser;
         }
     }
 </script>

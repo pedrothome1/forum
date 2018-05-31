@@ -20,7 +20,7 @@ class Reply extends Model
      *
      * @var array
      */
-    protected $appends = ['identifier', 'favoritedByUser'];
+    protected $appends = ['identifier', 'favoritedByUser', 'ago'];
 
 
     /**
@@ -50,6 +50,16 @@ class Reply extends Model
     public function getBodyAttribute($body)
     {
         return Purify::clean($body);
+    }
+
+    /**
+     * Get the time elapsed since the creation of the reply.
+     *
+     * @return mixed
+     */
+    public function getAgoAttribute()
+    {
+        return $this->created_at->diffForHumans();
     }
 
     /**

@@ -1,7 +1,11 @@
 <template>
     <div v-if="app.signedIn" class="my-3">
         <div class="form-group">
-            <text-editor v-model="body" placeholder="O que você achou dessa postagem?" :clear="changed"></text-editor>
+            <text-editor v-model="body"
+                         placeholder="O que você achou dessa postagem?"
+                         :clear="changed"
+                         :error="error"
+                         @keydown="error = ''"></text-editor>
         </div>
 
         <div class="form-group">
@@ -23,6 +27,7 @@
         data() {
             return {
                 body: '',
+                error: '',
                 changed: false
             };
         },
@@ -31,15 +36,15 @@
             addReply() {
                 axios.post(location.pathname + '/replies', {
                     body: this.body
-                }).then(({data}) => {
-                    this.$emit('created', data);
+                }).then(response => {
+                    this.$emit('created');
 
                     this.body = '';
                     this.changed = ! this.changed;
 
                     toastr.success('Comentário postado.');
                 }).catch(error => {
-                    console.log(error.response.data);
+                    this.error = error.response.data.errors.body[0];
                 });
             }
         }

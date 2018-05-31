@@ -29,7 +29,7 @@
                             {{ Auth::user()->username }} <span class="caret"></span>
                         </a>
 
-                        <div class="dropdown-menu animated flipInY" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">
                                 <i class="fa fa-user text-danger"></i> Meu perfil
                             </a>

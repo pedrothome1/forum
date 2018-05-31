@@ -5,11 +5,11 @@
         </div>
 
         <div>
-            <paginator :data-set="serverData" @new-page="fetch"></paginator>
+            <paginator :data-set="serverData" @new-page="refresh"></paginator>
         </div>
 
         <div>
-            <new-reply @created="add"></new-reply>
+            <new-reply @created="onCreation"></new-reply>
         </div>
     </div>
 </template>
@@ -17,11 +17,10 @@
 <script>
     import Reply from './Reply';
     import NewReply from './NewReply';
-    import Paginator from './Paginator';
     import collection from '../mixins/collection';
 
     export default {
-        components: { Reply, NewReply, Paginator },
+        components: { Reply, NewReply },
 
         mixins: [collection],
 
@@ -30,13 +29,35 @@
         },
 
         methods: {
-            fetch(page) {
-                axios.get(this.endpoint(page)).then(({data}) => {
-                    this.items = data.data;
-                    this.serverData = data;
+            refresh(page) {
+                this.fetch(page).then(data => {
+                    this.setData(data);
 
                     window.scrollTo(0, 0);
                 });
+            },
+
+            onCreation() {
+                this.fetch().then(data => {
+                    this.setData(data);
+                });
+            },
+
+            fetch(page) {
+                return new Promise((resolve, reject) => {
+                    axios.get(this.endpoint(page))
+                        .then(response => {
+                            resolve(response.data);
+                        })
+                        .catch(error => {
+                            reject(error.response.data);
+                        })
+                });
+            },
+
+            setData(data) {
+                this.items = data.data;
+                this.serverData = data;
             },
 
             endpoint(page) {
@@ -51,7 +72,11 @@
         },
 
         created() {
-            this.fetch();
+            this.fetch().then(data => {
+                this.setData(data);
+
+                this.$emit('loaded');
+            });
         }
     }
 </script>

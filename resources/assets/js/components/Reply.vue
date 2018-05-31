@@ -4,12 +4,11 @@
             <div class="mb-0 d-flex justify-content-between align-items-center" :class="{ 'mb-2': editing }">
                 <div>
                     <a href="#" class="font-weight-bold">{{ reply.user.username }}</a>
-                    <span class="text-muted">em {{ ago }}:</span>
+                    <span class="text-muted">{{ reply.ago }}:</span>
                 </div>
 
                 <favorite-button v-if="app.signedIn"
                                  :model="reply"
-                                 :favorited="reply.favoritedByUser"
                                  icon="thumbs-up"
                                  :show-count="true">
                 </favorite-button>
@@ -40,7 +39,6 @@
 </template>
 
 <script>
-    import moment from 'moment';
     import swal from 'sweetalert';
 
     export default {
@@ -72,7 +70,7 @@
                     icon: 'warning',
                     dangerMode: true,
                     title: 'Você tem certeza?',
-                    text: 'Isso irá remover seu comentário.'
+                    text: 'Isso irá apagar seu comentário.'
                 }).then(yes => {
                     if (! yes) {
                         return;
@@ -84,14 +82,6 @@
                         toastr.success('Comentário removido.');
                     });
                 });
-            }
-        },
-
-        computed: {
-            ago() {
-                moment.locale('pt-BR');
-
-                return moment(this.reply.created_at).format('LL');
             }
         }
     }
