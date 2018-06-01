@@ -19,7 +19,7 @@ class ReplyPolicy
      */
     public function update(User $user, Reply $reply)
     {
-        return $user->owns($reply);
+        return ! $reply->thread->solved && $user->owns($reply);
     }
 
     /**
@@ -31,6 +31,6 @@ class ReplyPolicy
      */
     public function delete(User $user, Reply $reply)
     {
-        return $user->owns($reply);
+        return ! $reply->thread->solved && $user->owns($reply);
     }
 }

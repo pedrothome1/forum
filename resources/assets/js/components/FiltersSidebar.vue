@@ -35,7 +35,7 @@
                     <i class="fa fa-lightbulb-o fa-fw text-danger"></i> Meus tópicos
                 </a>
 
-                <a href="#" class="list-group-item list-group-item-action">
+                <a href="/?participation=1" class="list-group-item list-group-item-action">
                     <i class="fa fa-code-fork fa-fw text-danger"></i> Minhas participações
                 </a>
 

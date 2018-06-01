@@ -14,5 +14,7 @@ Route::post('/threads/{thread}/replies', 'RepliesController@store')->middleware(
 Route::patch('/replies/{reply}', 'RepliesController@update')->middleware('auth');
 Route::delete('/replies/{reply}', 'RepliesController@destroy')->middleware('auth');
 
+Route::post('/replies/{reply}/best', 'BestRepliesController@store')->middleware('auth');
+
 Route::post('/favorites/{reply}', 'FavoritesController@toggleReply')->where('reply', '[0-9]+')->middleware('auth');
 Route::post('/favorites/{thread}', 'FavoritesController@toggleThread')->middleware('auth');

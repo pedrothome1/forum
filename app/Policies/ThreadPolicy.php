@@ -19,7 +19,7 @@ class ThreadPolicy
      */
     public function update(User $user, Thread $thread)
     {
-        return $user->owns($thread);
+        return ! $thread->solved && $user->owns($thread);
     }
 
     /**
@@ -31,6 +31,6 @@ class ThreadPolicy
      */
     public function delete(User $user, Thread $thread)
     {
-        //"
+        //
     }
 }

@@ -13,15 +13,14 @@ class Reply extends Model
      *
      * @var array
      */
-    protected $with = ['user'];
+    protected $with = ['user', 'thread'];
 
     /**
      * Appends custom accessors in the query result set.
      *
      * @var array
      */
-    protected $appends = ['identifier', 'favoritedByUser', 'ago'];
-
+    protected $appends = ['identifier', 'favoritedByUser', 'ago', 'isBest'];
 
     /**
      * Boot the model.
@@ -63,6 +62,16 @@ class Reply extends Model
     }
 
     /**
+     * Check whether the reply is marked as the best one.
+     *
+     * @return bool
+     */
+    public function getIsBestAttribute()
+    {
+        return $this->thread->best_reply_id == $this->id;
+    }
+
+    /**
      * A reply belongs to a user
      *
      * @return \Illuminate\Database\Eloquent\Relations\belongsTo
@@ -80,15 +89,5 @@ class Reply extends Model
     public function thread()
     {
         return $this->belongsTo(Thread::class);
-    }
-
-    /**
-     * Check whether the reply is marked as the best one.
-     *
-     * @return bool
-     */
-    public function isBest()
-    {
-        return $this->thread->best_reply_id == $this->id;
     }
 }

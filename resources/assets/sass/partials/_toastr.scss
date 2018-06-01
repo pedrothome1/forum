@@ -1,0 +1,17 @@
+.toast {
+  opacity: 1 !important;
+}
+
+.toast:hover {
+  -moz-box-shadow: 0 0 12px #666 !important;
+  -webkit-box-shadow: 0 0 12px #666 !important;
+  box-shadow: 0 0 12px #666 !important;
+}
+
+.toast-success {
+  background-color: $success;
+}
+
+.toast-error {
+  background-color: $danger;
+}

@@ -71,17 +71,28 @@ class ThreadFilters extends Filters
      */
     public function favorite()
     {
-        if (auth()->check()) {
-            return $this->builder->whereHas('favorites', function ($query) {
-                $query->where('user_id', auth()->id());
-            })->latest();
+        if (auth()->guest()) {
+            return $this->builder->latest();
         }
 
-        return $this->builder->latest();
+        return $this->builder->whereHas('favorites', function ($query) {
+            $query->where('user_id', auth()->id());
+        })->latest();
     }
 
+    /**
+     * Show only the threads that the user has participation.
+     *
+     * @return Builder
+     */
     public function participation()
     {
+        if (auth()->guest()) {
+            return $this->builder->latest();
+        }
 
+        return $this->builder->whereHas('replies', function ($query) {
+            $query->where('user_id', auth()->id());
+        })->latest();
     }
 }

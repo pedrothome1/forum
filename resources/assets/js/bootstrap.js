@@ -24,7 +24,7 @@ if (token) {
 }
 
 toastr.options = {
-    "closeButton": true,
+    "closeButton": false,
     "debug": false,
     "newestOnTop": true,
     "progressBar": false,
@@ -38,3 +38,5 @@ toastr.options = {
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
 };
+
+window.events = new Vue();

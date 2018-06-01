@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use stdClass;
+use App\Reply;
 use App\Thread;
 use App\Category;
 use App\Filters\ThreadFilters;
@@ -81,16 +83,17 @@ class ThreadsController extends Controller
      */
     public function show(Thread $thread)
     {
-        $replies = $thread->replies()->paginate(10);
+        $bestReply = Reply::find($thread->best_reply_id) ?: json_encode(new stdClass);
 
-        return view('threads.show', compact('thread', 'replies'));
+        return view('threads.show', compact('thread', 'bestReply'));
     }
 
     /**
      * Show the form for editing the specified thread.
      *
-     * @param  \App\Thread  $thread
+     * @param  \App\Thread $thread
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function edit(Thread $thread)
     {

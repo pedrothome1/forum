@@ -126,4 +126,18 @@ class Thread extends Model
     {
         return $this->replies()->create($reply);
     }
+
+    /**
+     * Mark the thread as solved.
+     *
+     * @param  Reply  $bestReply
+     * @return mixed
+     */
+    public function markAsSolved(Reply $bestReply)
+    {
+        return tap($this)->update([
+            'best_reply_id' => $bestReply->id,
+            'solved' => true
+        ]);
+    }
 }

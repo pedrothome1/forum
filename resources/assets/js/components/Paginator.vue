@@ -44,9 +44,9 @@
             page() {
                 this.changing = true;
 
-                history.replaceState(null, null, '?page=' + this.page);
+                window.events.$emit('new-page', this.page);
 
-                this.$emit('new-page', this.page);
+                history.replaceState(null, null, '?page=' + this.page);
             }
         }
     }

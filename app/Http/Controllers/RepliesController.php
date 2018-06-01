@@ -15,7 +15,7 @@ class RepliesController extends Controller
      */
     public function index(Thread $thread)
     {
-        return $thread->replies()->paginate(15);
+        return $thread->replies()->paginate(10);
     }
 
     /**

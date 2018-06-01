@@ -1,15 +1,19 @@
 <template>
     <div>
         <div v-for="(reply, index) in items" :key="reply.id">
-            <reply :reply="reply" @deleted="remove(index)"></reply>
+            <reply :reply="reply" :thread-solved="threadSolved" @deleted="remove(index)"></reply>
         </div>
 
         <div>
-            <paginator :data-set="serverData" @new-page="refresh"></paginator>
+            <paginator :data-set="serverData"></paginator>
         </div>
 
-        <div>
+        <div v-if="! threadSolved">
             <new-reply @created="onCreation"></new-reply>
+        </div>
+
+        <div v-else class="alert alert-warning">
+            Este tópico foi marcado como solucionado, se a dúvida ainda persiste, abra outro tópico.
         </div>
     </div>
 </template>
@@ -20,12 +24,16 @@
     import collection from '../mixins/collection';
 
     export default {
+        props: ['threadSolved'],
+
         components: { Reply, NewReply },
 
         mixins: [collection],
 
         data() {
-            return { serverData: false };
+            return {
+                serverData: false
+            };
         },
 
         methods: {
@@ -72,6 +80,8 @@
         },
 
         created() {
+            window.events.$on('new-page', this.refresh);
+
             this.fetch().then(data => {
                 this.setData(data);
 

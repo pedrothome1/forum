@@ -4,7 +4,7 @@
         <trix-editor ref="trix" :class="{ 'is-invalid': error }" input="trix" :placeholder="placeholder"></trix-editor>
 
         <span v-if="error" class="invalid-feedback d-block">
-            <strong v-text="error"></strong>
+            <strong class="text-danger" v-text="error"></strong>
         </span>
     </div>
 </template>
