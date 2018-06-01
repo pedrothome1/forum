@@ -35,16 +35,16 @@
         methods: {
             addReply() {
                 axios.post(location.pathname + '/replies', {
-                    body: this.body
-                }).then(response => {
-                    this.$emit('created');
+                    reply_body: this.body
+                }).then(({data}) => {
+                    this.$emit('created', data);
 
                     this.body = '';
                     this.changed = ! this.changed;
 
                     toastr.success('Comentário postado.');
                 }).catch(error => {
-                    this.error = error.response.data.errors.body[0];
+                    this.error = error.response.data.errors.reply_body[0];
                 });
             }
         }

@@ -48550,6 +48550,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     data: function data() {
         return {
+            perPage: false,
             serverData: false
         };
     },
@@ -48565,8 +48566,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 window.scrollTo(0, 0);
             });
         },
-        onCreation: function onCreation() {
+        onCreation: function onCreation(reply) {
             var _this2 = this;
+
+            if (this.items.length < this.perPage) {
+                this.add(reply);
+
+                console.log('Otimizado!');
+
+                return;
+            }
 
             this.fetch().then(function (data) {
                 _this2.setData(data);
@@ -48586,6 +48595,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         setData: function setData(data) {
             this.items = data.data;
             this.serverData = data;
+
+            this.perPage = this.serverData.per_page;
         },
         endpoint: function endpoint(page) {
             if (!page) {
@@ -49052,16 +49063,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             axios.post(location.pathname + '/replies', {
-                body: this.body
-            }).then(function (response) {
-                _this.$emit('created');
+                reply_body: this.body
+            }).then(function (_ref) {
+                var data = _ref.data;
+
+                _this.$emit('created', data);
 
                 _this.body = '';
                 _this.changed = !_this.changed;
 
                 toastr.success('Comentário postado.');
             }).catch(function (error) {
-                _this.error = error.response.data.errors.body[0];
+                _this.error = error.response.data.errors.reply_body[0];
             });
         }
     }
