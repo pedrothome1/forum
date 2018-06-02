@@ -32,6 +32,7 @@
 
         data() {
             return {
+                total: false,
                 perPage: false,
                 serverData: false
             };
@@ -48,10 +49,10 @@
 
             onCreation(reply) {
                 if (this.items.length < this.perPage) {
-                    this.add(reply);
+                    return this.add(reply);
+                }
 
-                    console.log('Otimizado!');
-
+                if (this.total > this.perPage) {
                     return;
                 }
 
@@ -76,6 +77,7 @@
                 this.items = data.data;
                 this.serverData = data;
 
+                this.total = this.serverData.total;
                 this.perPage = this.serverData.per_page;
             },
 

@@ -1,6 +1,9 @@
 <?php
 
+use App\Reply;
+use App\Thread;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,7 +14,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Category::class, 8)->create();
+        $thread = factory(Thread::class)->create();
+
+        factory(Reply::class, 50)->create(['thread_id' => $thread->id]);
+
+        DB::table('users')->insert([
+            'name' => 'Pedro Henrique',
+            'email' => 'admin@forum.com',
+            'username' => 'admin',
+            'password' => bcrypt('123456'),
+            'is_admin' => true
+        ]);
 
         // $this->call(UsersTableSeeder::class);
     }

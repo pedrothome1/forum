@@ -21,6 +21,10 @@
         </main>
 
         <flash type="{{ session('type') }}" message="{{ session('status') }}"></flash>
+
+        <div v-cloak>
+            @include('modals.all')
+        </div>
     </div>
 
     <script>

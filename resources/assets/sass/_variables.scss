@@ -5,7 +5,7 @@ $body-bg: #f5f8fa;
 // Colors
 $dark: #4d545d;
 $orange: #ef6733;
-$primary: darken(#398bf7, 1%);
+$primary: #3490dc;
 $success: #06d79c;
 $danger: #ef5350;
 
@@ -16,3 +16,7 @@ $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 $headings-font-weight: $font-weight-bold;
 $headings-color: $dark;
+
+$btn-font-weight: 600;
+
+$card-border-radius: 0;

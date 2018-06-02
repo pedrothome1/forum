@@ -10,10 +10,8 @@
             </div>
         </div>
 
-        @if ($anyThread)
-            <div class="col-md-4">
-                <filters-sidebar :categories="{{ $categories }}"></filters-sidebar>
-            </div>
-        @endif
+        <div class="col-md-4">
+            @include('layouts.sidebar')
+        </div>
     </div>
 @endsection

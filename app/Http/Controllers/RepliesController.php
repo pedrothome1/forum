@@ -28,10 +28,7 @@ class RepliesController extends Controller
     {
         $this->validate(request(), ['reply_body' => 'required']);
 
-        $reply = $thread->addReply([
-            'reply_body' => request('reply_body'),
-            'user_id' => auth()->id(),
-        ]);
+        $reply = $thread->addReply(['body' => request('reply_body')]);
 
         if (request()->expectsJson()) {
             return $reply->load('user');

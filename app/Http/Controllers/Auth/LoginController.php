@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -35,5 +36,23 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * The user was authenticated successfully.
+     *
+     * @param  Request $request
+     * @param  $user
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
+     */
+    protected function authenticated(Request $request, $user)
+    {
+        $this->flash('Bem-vindo de volta!');
+
+        if ($request->expectsJson()) {
+            return response()->json(['redirect' => $this->redirectTo], 200);
+        }
+
+        return redirect()->intended($this->redirectPath());
     }
 }

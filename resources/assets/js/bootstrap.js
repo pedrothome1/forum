@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import _ from 'lodash';
+import VModal from 'vue-js-modal'
 import Popper from 'popper.js';
 import jQuery from 'jquery';
 import 'bootstrap';
@@ -7,7 +7,9 @@ import toastr from 'toastr';
 import axios from 'axios';
 
 window.Vue = Vue;
-window._ = _;
+
+Vue.use(VModal);
+
 window.Popper = Popper.default;
 window.$ = window.jQuery = jQuery;
 window.toastr = toastr;

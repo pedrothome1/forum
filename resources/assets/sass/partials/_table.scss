@@ -1,8 +1,11 @@
-th {
-  color: #333;
+.table th {
   font-size: $font-size-sm;
   font-weight: normal;
-  border-bottom: 1px !important;
+  border: none !important;
   text-transform: uppercase;
   letter-spacing: .08rem;
+}
+
+.table tr:first-child td {
+  border-top: none !important;
 }

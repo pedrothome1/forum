@@ -124,6 +124,8 @@ class Thread extends Model
      */
     public function addReply(array $reply)
     {
+        $reply['user_id'] = $reply['user_id'] ?? auth()->id();
+
         return $this->replies()->create($reply);
     }
 

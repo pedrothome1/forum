@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light custom-navbar">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
+            <i class="fa fa-comments-o fa-lg"></i> {{ config('app.name', 'Laravel') }}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -12,7 +12,9 @@
             <ul class="navbar-nav mr-auto">
                 @auth
                     <li>
-                        <a class="nav-link {{ request()->is('threads/create') ? 'active' : '' }}" href="/threads/create">Novo tópico</a>
+                        <a class="btn btn-success btn-bright-success ml-3" href="/threads/create">
+                            Novo tópico
+                        </a>
                     </li>
                 @endauth
             </ul>
@@ -21,8 +23,25 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
-                    <li><a class="nav-link" href="{{ route('login') }}">Entrar</a></li>
-                    <li><a class="nav-link" href="{{ route('register') }}">Cadastrar-se</a></li>
+                    <li>
+                        <a class="nav-link d-none d-md-inline-block" @click.prevent="$modal.show('login')" href="#">
+                            Entrar
+                        </a>
+
+                        <a class="nav-link d-md-none" href="{{ route('login') }}">
+                            Entrar
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link d-none d-md-inline-block" @click.prevent="$modal.show('register')" href="#">
+                            Cadastrar-se
+                        </a>
+
+                        <a class="nav-link d-md-none" href="{{ route('register') }}">
+                            Cadastrar-se
+                        </a>
+                    </li>
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -31,7 +50,7 @@
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">
-                                <i class="fa fa-user text-danger"></i> Meu perfil
+                                <i class="fa fa-user text-muted"></i> Meu perfil
                             </a>
 
                             <div class="dropdown-divider"></div>
@@ -39,7 +58,7 @@
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
-                                <i class="fa fa-sign-out text-danger"></i> Sair
+                                <i class="fa fa-sign-out text-muted"></i> Sair
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

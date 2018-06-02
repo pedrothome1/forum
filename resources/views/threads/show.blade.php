@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <filters-sidebar :categories="{{ $categories }}"></filters-sidebar>
+                    @include('layouts.sidebar')
                 </div>
             </div>
         </transition>

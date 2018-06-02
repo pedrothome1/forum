@@ -16,9 +16,9 @@
     </div>
 
     <div v-else>
-        <p class="text-center my-3">
-            Você precisa estar autenticado para responder: <a href="/login">Entrar</a>
-        </p>
+        <div class="alert alert-warning my-3">
+            Você precisa estar autenticado para responder: <a @click.prevent="$modal.show('login')" href="#">Entrar</a>
+        </div>
     </div>
 </template>
 

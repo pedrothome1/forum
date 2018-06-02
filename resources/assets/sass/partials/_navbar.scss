@@ -1,4 +1,18 @@
 .custom-navbar {
   background-color: #fff;
   border-bottom: 1px solid #e1dbd0;
+  border-top: 3px solid $primary;
+}
+
+.custom-navbar .nav-link {
+  font-weight: 600;
+
+  &:focus {
+    outline: none !important;
+  }
+}
+
+.custom-navbar .navbar-brand {
+  color: $dark !important;
+  font-weight: 600;
 }

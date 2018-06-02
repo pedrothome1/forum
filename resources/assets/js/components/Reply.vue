@@ -27,12 +27,6 @@
         </div>
 
         <div v-if="! threadSolved && (userOwns(reply) || userOwns(reply.thread))" class="card-footer custom-card-footer d-flex justify-content-between">
-            <div v-if="userOwns(reply.thread)">
-                <button @click="markAsBest" class="action-link">
-                    <small><i class="fa fa-check"></i> Melhor resposta?</small>
-                </button>
-            </div>
-
             <div v-if="userOwns(reply)">
                 <button @click="editing = true" class="action-link">
                     <i class="fa fa-pencil"></i>
@@ -40,6 +34,12 @@
 
                 <button @click="destroy" class="action-link ml-2">
                     <i class="fa fa-trash"></i>
+                </button>
+            </div>
+
+            <div v-if="userOwns(reply.thread)">
+                <button @click="markAsBest" class="action-link">
+                    <small><i class="fa fa-check"></i> Melhor resposta?</small>
                 </button>
             </div>
         </div>

@@ -3,12 +3,12 @@
 @section('content')
     <div class="row">
         <div class="col-md-8">
-            <table class="table table-bordered">
-                <thead class="bg-light">
+            <table class="table">
+                <thead class="bg-primary">
                     <tr>
-                        <th>Tópico</th>
-                        <th class="text-center">Assunto</th>
-                        <th class="text-center">Respostas</th>
+                        <th class="text-white">Tópico</th>
+                        <th class="text-center text-white">Assunto</th>
+                        <th class="text-center text-white">Respostas</th>
                     </tr>
                 </thead>
 
@@ -33,7 +33,7 @@
                                 </div>
                             </td>
 
-                            <td class="align-middle">{{ $thread->category->name }}</td>
+                            <td class="align-middle text-center">{{ $thread->category->name }}</td>
                             <td class="text-center align-middle">
                                 <span class="badge badge-pill badge-success my-badge">{{ count($thread->replies) }}</span>
                             </td>
@@ -49,10 +49,8 @@
             {{ $threads->links('vendor.pagination.bootstrap-4') }}
         </div>
 
-        @if ($anyThread)
-            <div class="col-md-4">
-                <filters-sidebar :categories="{{ $categories }}"></filters-sidebar>
-            </div>
-        @endif
+        <div class="col-md-4">
+            @include('layouts.sidebar')
+        </div>
     </div>
 @endsection
