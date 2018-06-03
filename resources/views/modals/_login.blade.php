@@ -34,9 +34,11 @@
                 </div>
 
                 <div class="form-group d-flex justify-content-between align-items-center mb-0">
-                    <button type="submit" class="btn btn-success btn-bright-success">Entrar</button>
+                    <button type="submit" class="btn btn-success btn-bright-success">
+                        <span v-show="isLoading"><i class="fa fa-spinner fa-spin"></i>&nbsp;</span>Entrar
+                    </button>
 
-                    <a href="#" class="text-muted">Esqueceu a senha?</a>
+                    <a href="{{ route('password.request') }}" class="text-muted">Esqueceu a senha?</a>
                 </div>
             </form>
         </div>

@@ -18,7 +18,7 @@
                 <text-editor v-model="body"></text-editor>
 
                 <div class="mt-2">
-                    <button @click="update" class="btn btn-primary btn-sm">Salvar</button>
+                    <button @click="update" class="btn btn-success btn-bright-success btn-sm">Salvar</button>
                     <button @click="editing = false" class="btn btn-light btn-sm">Cancelar</button>
                 </div>
             </div>

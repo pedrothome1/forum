@@ -23,7 +23,9 @@
         <flash type="{{ session('type') }}" message="{{ session('status') }}"></flash>
 
         <div v-cloak>
-            @include('modals.all')
+            @section('modals')
+                @include('modals.all')
+            @show
         </div>
     </div>
 

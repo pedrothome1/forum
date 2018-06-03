@@ -1,5 +1,5 @@
 .custom-card {
-  border: none !important;
+  //border: none !important;
   -webkit-border-radius: 0 !important;
   -moz-border-radius: 0 !important;
   border-radius: 0 !important;
@@ -19,13 +19,6 @@
   background-color: transparent;
   padding-top: 0;
   padding-bottom: 0;
-}
-
-.custom-card .list-group-item:last-child {
-  -webkit-border-radius: 0 !important;
-  -moz-border-radius: 0 !important;
-  border-radius: 0 !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125) !important;
 }
 
 .custom-card .list-group-item.active {

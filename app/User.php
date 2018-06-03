@@ -26,6 +26,13 @@ class User extends Authenticatable
     protected $hidden = ['email', 'password', 'remember_token'];
 
     /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = ['is_admin' => 'boolean'];
+
+    /**
      * A user has many threads.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -73,5 +80,15 @@ class User extends Authenticatable
     public function owns($model)
     {
         return $this->id == optional($model)->user_id;
+    }
+
+    /**
+     * Check whether the user is an administrator.
+     *
+     * @return mixed
+     */
+    public function isAdmin()
+    {
+        return $this->is_admin;
     }
 }

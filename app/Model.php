@@ -44,4 +44,14 @@ class Model extends Eloquent
     {
         return $this->getRouteKeyName();
     }
+
+    /**
+     * Wraps the "exists" property so that it can be appended in the query result set.
+     *
+     * @return bool
+     */
+    public function getPersistedAttribute()
+    {
+        return $this->exists;
+    }
 }

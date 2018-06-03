@@ -26,8 +26,7 @@
                            class="form-control rounded-0"
                            :class="{ 'is-invalid': form.errors.has('username') }"
                            name="username"
-                           v-model="form.username"
-                           autofocus>
+                           v-model="form.username">
 
                     <span v-show="form.errors.has('username')" class="invalid-feedback">
                         <strong class="text-danger" v-text="form.errors.get('username')"></strong>
@@ -42,8 +41,7 @@
                            class="form-control rounded-0"
                            :class="{ 'is-invalid': form.errors.has('email') }"
                            name="email"
-                           v-model="form.email"
-                           autofocus>
+                           v-model="form.email">
 
                     <span v-show="form.errors.has('email')" class="invalid-feedback">
                         <strong class="text-danger" v-text="form.errors.get('email')"></strong>

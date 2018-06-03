@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
 
         factory(Reply::class, 50)->create(['thread_id' => $thread->id]);
 
+        factory(Thread::class, 6)->create();
+
         DB::table('users')->insert([
             'name' => 'Pedro Henrique',
             'email' => 'admin@forum.com',

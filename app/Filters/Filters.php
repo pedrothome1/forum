@@ -77,7 +77,7 @@ abstract class Filters
      *
      * @return array
      */
-    protected function getFilters()
+    public function getFilters()
     {
         return $this->request->only($this->filters);
     }

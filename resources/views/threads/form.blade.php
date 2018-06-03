@@ -6,13 +6,13 @@
     @endif
 
     <div class="form-group">
-        <label for="category_id">Assunto:</label>
+        <label for="category_id" class="text-xs text-secondary text-uppercase font-weight-600">Assunto</label>
 
-        <select class="form-control{{ $errors->has('category_id') ? ' is-invalid' : '' }}" name="category_id" id="category_id" required>
+        <select class="form-control rounded-0{{ $errors->has('category_id') ? ' is-invalid' : '' }}" name="category_id" id="category_id" required>
             <option value="" selected>Escolha um assunto...</option>
 
             @foreach ($categories as $category)
-                <option value="{{ $category->id }}" {{ $category->id == (old('category_id') ?: $thread->id) ? 'selected' : '' }}>
+                <option value="{{ $category->id }}" {{ $category->id == old('category_id', optional($thread->category)->id) ? 'selected' : '' }}>
                     {{ $category->name }}
                 </option>
             @endforeach
@@ -26,9 +26,14 @@
     </div>
 
     <div class="form-group">
-        <label for="title">Título:</label>
+        <label for="title" class="text-xs text-secondary text-uppercase font-weight-600">Título</label>
 
-        <input type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" id="title" name="title" value="{{ old('title') ?: $thread->title }}" required>
+        <input type="text"
+               class="form-control rounded-0{{ $errors->has('title') ? ' is-invalid' : '' }}"
+               id="title"
+               name="title"
+               value="{{ old('title', $thread->title) }}"
+               required>
 
         @if ($errors->has('title'))
             <span class="invalid-feedback">
@@ -38,9 +43,11 @@
     </div>
 
     <div class="form-group">
-        <label>Detalhes do tópico:</label>
+        <label class="text-xs text-secondary text-uppercase font-weight-600">Detalhes do tópico</label>
 
-        <text-editor name="body" value="{{ old('body') ?: $thread->body }}" error="{{ $errors->first('body') }}"></text-editor>
+        <text-editor name="body"
+                     value="{{ old('body', $thread->body) }}"
+                     error="{{ $errors->first('body') }}"></text-editor>
     </div>
 
     <div class="form-group">

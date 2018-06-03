@@ -21,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         View::composer('threads.*', function ($view) {
-            $view->with(['categories' => Category::all(), 'anyThread' => !! Thread::count()]);
+            $view->with(['categories' => Category::all()]);
         });
 
         setlocale(LC_TIME, 'Portuguese');

@@ -1,4 +1,4 @@
-<div class="card custom-card mb-3">
+<div class="card custom-card mb-3 {{ $noBorder ?? '' }}">
     <div class="card-header custom-card-header bg-blue-darker text-white text-center">
         Filtros
     </div>
@@ -36,7 +36,7 @@
     </ul>
 </div>
 
-<div class="card custom-card">
+<div class="card custom-card {{ $noBorder ?? '' }}">
     <div class="card-header custom-card-header bg-blue-darker text-white text-center">
         Assuntos
     </div>
@@ -44,7 +44,7 @@
     <ul class="list-group list-group-flush">
         @foreach ($categories as $category)
             <a href="/{{ $category->slug }}" class="list-group-item list-group-item-action">
-                <i class="fa fa-comments-o text-info"></i> {{ $category->name }}
+                <i class="fa fa-circle fa-fw" style="color: {{ $category->color }}"></i> {{ $category->name }}
             </a>
         @endforeach
     </ul>

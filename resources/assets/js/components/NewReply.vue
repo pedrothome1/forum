@@ -10,7 +10,7 @@
 
         <div class="form-group">
             <button @click="addReply" class="btn btn-primary">
-                Responder
+                <span v-show="isLoading"><i class="fa fa-spinner fa-spin"></i>&nbsp;</span>Responder
             </button>
         </div>
     </div>
@@ -28,12 +28,15 @@
             return {
                 body: '',
                 error: '',
-                changed: false
+                changed: false,
+                isLoading: false
             };
         },
 
         methods: {
             addReply() {
+                this.isLoading = true;
+
                 axios.post(location.pathname + '/replies', {
                     reply_body: this.body
                 }).then(({data}) => {
@@ -43,8 +46,12 @@
                     this.changed = ! this.changed;
 
                     toastr.success('Comentário postado.');
+
+                    this.isLoading = false;
                 }).catch(error => {
                     this.error = error.response.data.errors.reply_body[0];
+
+                    this.isLoading = false;
                 });
             }
         }

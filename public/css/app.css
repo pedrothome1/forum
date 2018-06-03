@@ -14254,7 +14254,6 @@ a.text-dark:focus {
 }
 
 .custom-card {
-  border: none !important;
   border-radius: 0 !important;
 }
 
@@ -14270,11 +14269,6 @@ a.text-dark:focus {
   background-color: transparent;
   padding-top: 0;
   padding-bottom: 0;
-}
-
-.custom-card .list-group-item:last-child {
-  border-radius: 0 !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125) !important;
 }
 
 .custom-card .list-group-item.active {

@@ -22,7 +22,7 @@ class Thread extends Model
      *
      * @var array
      */
-    protected $appends = ['identifier', 'favoritedByUser'];
+    protected $appends = ['identifier', 'favoritedByUser', 'persisted'];
 
     /**
      * Boot the model.

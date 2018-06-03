@@ -7,15 +7,23 @@
                 form: new Form({
                     email: '',
                     password: ''
-                })
+                }),
+
+                isLoading: false,
             };
         },
 
         methods: {
             onSubmit() {
+                this.isLoading = true;
+
                 this.form.post('/login').then(data => {
                     location.assign(data.redirect);
-                }).catch(errors => {});
+
+                    this.isLoading = false;
+                }).catch(errors => {
+                    this.isLoading = false;
+                });
             }
         }
     }

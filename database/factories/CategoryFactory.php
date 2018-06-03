@@ -7,6 +7,7 @@ $factory->define(\App\Category::class, function (Faker $faker) {
 
     return [
         'name' => $name,
-        'slug' => mb_strtolower($name, 'UTF-8')
+        'slug' => mb_strtolower($name, 'UTF-8'),
+        'color' => $faker->hexColor
     ];
 });

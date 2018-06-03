@@ -1,6 +1,6 @@
 <template>
     <div>
-        <input id="trix" type="hidden" :name="name"  :value="value">
+        <input id="trix" type="hidden" :name="name" :value="value">
         <trix-editor ref="trix" :class="{ 'is-invalid': error }" input="trix" :placeholder="placeholder"></trix-editor>
 
         <span v-if="error" class="invalid-feedback d-block">
@@ -44,6 +44,12 @@
 
     .trix-button-group {
         border-color: #ced4da !important;
+        border-radius: 0 !important;
+        border-bottom-width: 0 !important;
+    }
+
+    .trix-button-row {
+        margin-bottom: -10px;
     }
 
     .trix-active {
@@ -51,10 +57,9 @@
     }
 
     trix-editor {
-        margin-top: -7px;
         border-color: #ced4da !important;
-        /*min-height: 150px;*/
         background-color: #fff;
+        border-radius: 0;
     }
 
     trix-editor.is-invalid {

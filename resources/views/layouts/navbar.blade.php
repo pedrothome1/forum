@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light custom-navbar">
+<nav class="navbar navbar-expand-md navbar-light custom-navbar py-lg-2">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             <i class="fa fa-comments-o fa-lg"></i> {{ config('app.name', 'Laravel') }}
@@ -12,7 +12,7 @@
             <ul class="navbar-nav mr-auto">
                 @auth
                     <li>
-                        <a class="btn btn-success btn-bright-success ml-3" href="/threads/create">
+                        <a class="btn btn-success btn-bright-success ml-md-3 my-2 my-md-0" href="/threads/create">
                             Novo tópico
                         </a>
                     </li>
@@ -49,8 +49,14 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @if (auth()->user()->isAdmin())
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-tachometer fa-fw text-muted"></i> Painel
+                                </a>
+                            @endif
+
                             <a class="dropdown-item" href="#">
-                                <i class="fa fa-user text-muted"></i> Meu perfil
+                                <i class="fa fa-user fa-fw text-muted"></i> Meu perfil
                             </a>
 
                             <div class="dropdown-divider"></div>
@@ -58,7 +64,7 @@
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
-                                <i class="fa fa-sign-out text-muted"></i> Sair
+                                <i class="fa fa-sign-out fa-fw text-muted"></i> Sair
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
