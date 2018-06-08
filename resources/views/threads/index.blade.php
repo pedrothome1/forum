@@ -20,7 +20,7 @@
                                     <div>
                                         <a class="text-dark font-weight-bold" href="{{ $thread->path() }}">{{ str_limit($thread->title, 45) }}</a>
                                         <small class="text-muted font-weight-bold d-block">
-                                            por: <a href="#">{{ $thread->user->username }}</a> &#8226;
+                                            por: <a href="{{ route('profile', $thread->user->username) }}">{{ $thread->user->username }}</a> &#8226;
                                             <a href="{{ $thread->path() }}" class="text-muted">{{ $thread->created_at->diffForHumans() }}</a>
                                         </small>
                                     </div>

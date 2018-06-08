@@ -5,11 +5,12 @@
 
             <small class="text-muted">
                 <span class="text-uppercase">
-                    Publicado {{ $thread->created_at->diffForHumans() }}
+                    Publicado em {{ $thread->created_at->formatLocalized('%d %B %Y') }}
+                    ás {{ $thread->created_at->format('H:i') }}
                     &#8226; por:
                 </span>
 
-                <a href="#">{{ $thread->user->username }}</a>
+                <a href="{{ route('profile', $thread->user->username) }}">{{ $thread->user->username }}</a>
             </small>
         </div>
 

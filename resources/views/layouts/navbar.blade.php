@@ -55,7 +55,7 @@
                                 </a>
                             @endif
 
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{ route('profile', Auth::user()->username) }}">
                                 <i class="fa fa-user fa-fw text-muted"></i> Meu perfil
                             </a>
 
