@@ -14,9 +14,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'username', 'password'
-    ];
+    protected $fillable = ['name', 'email', 'username', 'password'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -72,6 +70,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'username';
+    }
+
+    /**
      * Determine if the user owns the given model.
      *
      * @param  object  $model
@@ -92,6 +100,11 @@ class User extends Authenticatable
         return $this->is_admin;
     }
 
+    /**
+     * A user has many replies.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function replies()
     {
         return $this->hasMany(Reply::class);
