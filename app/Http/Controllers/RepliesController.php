@@ -26,7 +26,7 @@ class RepliesController extends Controller
      */
     public function store(Thread $thread)
     {
-        $this->validate(request(), ['reply_body' => 'required']);
+        request()->validate(['reply_body' => 'required']);
 
         $reply = $thread->addReply(['body' => request('reply_body')]);
 
@@ -48,7 +48,7 @@ class RepliesController extends Controller
     {
         $this->authorize('update', $reply);
 
-        $this->validate(request(), ['body' => 'required']);
+        request()->validate(['body' => 'required']);
 
         return tap($reply)->update(request(['body']));
     }

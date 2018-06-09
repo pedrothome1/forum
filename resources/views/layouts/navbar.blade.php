@@ -50,8 +50,8 @@
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @if (auth()->user()->isAdmin())
-                                <a class="dropdown-item" href="#">
-                                    <i class="fa fa-tachometer fa-fw text-muted"></i> Painel
+                                <a class="dropdown-item" href="/admin/categories">
+                                    <i class="fa fa-tachometer fa-fw text-muted"></i> Admin
                                 </a>
                             @endif
 

@@ -1,4 +1,4 @@
-<div class="card custom-card mb-3 {{ $noBorder ?? '' }}">
+<div class="card custom-card mb-3 border-0">
     <div class="card-header custom-card-header bg-blue-darker text-white text-center">
         Filtros
     </div>
@@ -36,7 +36,7 @@
     </ul>
 </div>
 
-<div class="card custom-card {{ $noBorder ?? '' }}">
+<div class="card custom-card border-0">
     <div class="card-header custom-card-header bg-blue-darker text-white text-center">
         Assuntos
     </div>

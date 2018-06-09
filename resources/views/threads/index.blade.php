@@ -55,7 +55,7 @@
         </div>
 
         <div class="col-md-4">
-            @include('layouts.sidebar', ['noBorder' => 'border-0'])
+            @include('layouts.sidebar')
         </div>
     </div>
 @endsection

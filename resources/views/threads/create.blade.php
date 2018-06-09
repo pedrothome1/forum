@@ -5,7 +5,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    @include('threads.form', ['button' => 'Publicar'])
+                    <form method="POST" action="/threads">
+                        @include('threads.form', ['button' => 'Publicar'])
+                    </form>
                 </div>
             </div>
         </div>

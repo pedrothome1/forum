@@ -60,7 +60,7 @@ class ThreadsController extends Controller
      */
     public function store()
     {
-        $this->validate(request(), [
+        request()->validate([
             'title' => 'required|string',
             'body' => 'required|string',
             'category_id' => 'required|numeric|exists:categories,id'
@@ -117,7 +117,7 @@ class ThreadsController extends Controller
     {
         $this->authorize('update', $thread);
 
-        $this->validate(request(), [
+        request()->validate([
             'title' => 'required|string',
             'body' => 'required|string',
             'category_id' => 'required|numeric|exists:categories,id'

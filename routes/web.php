@@ -20,3 +20,7 @@ Route::post('/favorites/{reply}', 'FavoritesController@toggleReply')->where('rep
 Route::post('/favorites/{thread}', 'FavoritesController@toggleThread')->middleware('auth');
 
 Route::get('/profiles/{user}', 'ProfilesController@show')->name('profiles');
+
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+    Route::resource('categories', 'CategoriesController')->except('show', 'delete');
+});
