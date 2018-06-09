@@ -10,7 +10,7 @@
                     &#8226; por:
                 </span>
 
-                <a href="{{ route('profile', $thread->user->username) }}">{{ $thread->user->username }}</a>
+                <a href="{{ route('profiles', $thread->user->username) }}">{{ $thread->user->username }}</a>
             </small>
         </div>
 

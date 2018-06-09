@@ -19,4 +19,4 @@ Route::post('/replies/{reply}/best', 'BestRepliesController@store')->middleware(
 Route::post('/favorites/{reply}', 'FavoritesController@toggleReply')->where('reply', '[0-9]+')->middleware('auth');
 Route::post('/favorites/{thread}', 'FavoritesController@toggleThread')->middleware('auth');
 
-Route::get('/profile/{username}', 'ProfilesController@show')->name('profile');
+Route::get('/profiles/{user}', 'ProfilesController@show')->name('profiles');
