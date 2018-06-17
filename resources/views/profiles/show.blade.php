@@ -70,7 +70,7 @@
                                     </ul>
                                 @else
                                     <div class="lead text-center mt-5">
-                                        {{ Auth::user()->id === $user->id ? "Você" : "Este usuário" }} ainda não criou nenhum tópico
+                                        {{ optional(Auth::user())->id === $user->id ? "Você" : "Este usuário" }} ainda não criou nenhum tópico
                                     </div>
                                 @endif
                             </div>
@@ -92,7 +92,7 @@
                                     </ul>
                                 @else
                                     <div class="lead text-center mt-5">
-                                        {{ Auth::user()->id === $user->id ? "Você" : "Este usuário" }} ainda não respondeu a nenhum tópico
+                                        {{ optional(Auth::user())->id === $user->id ? "Você" : "Este usuário" }} ainda não respondeu a nenhum tópico
                                     </div>
                                 @endif
                             </div>
