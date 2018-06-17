@@ -8,7 +8,7 @@ use App\Thread;
 class FavoritesController extends Controller
 {
     /**
-     * Toggle the favorited state of a thread.
+     * Toggle the favorite state of a thread.
      *
      * @param  Thread  $thread
      * @return \Illuminate\Database\Eloquent\Model
@@ -19,7 +19,7 @@ class FavoritesController extends Controller
     }
 
     /**
-     * Toggle the favorited state of a reply.
+     * Toggle the favorite state of a reply.
      *
      * @param  Reply  $reply
      * @return \Illuminate\Database\Eloquent\Model

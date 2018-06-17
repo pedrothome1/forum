@@ -21,11 +21,12 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         View::composer('threads.*', function ($view) {
-            $view->with(['categories' => Category::all()]);
+            $view->with(['categories' => Category::orderBy('name')->get()]);
         });
 
-        setlocale(LC_TIME, 'Portuguese');
         Carbon::setLocale('pt-BR');
+
+        setlocale(LC_TIME, 'Portuguese');
     }
 
     /**

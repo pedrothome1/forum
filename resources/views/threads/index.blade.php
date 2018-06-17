@@ -27,14 +27,14 @@
 
                                     @if ($thread->solved)
                                         <div>
-                                            <i class="fa fa-check fa-lg text-success"></i>
+                                            <i class="fa fa-check-circle fa-1-75x text-info"></i>
                                         </div>
                                     @endif
                                 </div>
                             </td>
 
                             <td class="align-middle">
-                                <a class="font-weight-600" href="/{{ $thread->category->slug }}" style="color: {{ $thread->category->color }}">
+                                <a class="font-weight-bold" href="/{{ $thread->category->slug }}" style="color: {{ $thread->category->color }}">
                                     {{ $thread->category->name }}
                                 </a>
                             </td>

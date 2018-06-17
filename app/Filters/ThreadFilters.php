@@ -28,7 +28,7 @@ class ThreadFilters extends Filters
     public function my()
     {
         if (auth()->check()) {
-            return $this->builder->where('user_id', auth()->id());
+            return $this->builder->where('user_id', auth()->id())->latest();
         }
 
         return $this->builder->latest();

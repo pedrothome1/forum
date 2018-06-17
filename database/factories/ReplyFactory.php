@@ -10,6 +10,6 @@ $factory->define(App\Reply::class, function (Faker $faker) {
         'thread_id' => function () {
             return factory(App\Thread::class)->create()->id;
         },
-        'body' => $faker->randomHtml()
+        'body' => $faker->text()
     ];
 });

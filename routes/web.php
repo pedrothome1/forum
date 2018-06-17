@@ -8,6 +8,7 @@ Route::get('/threads/{thread}', 'ThreadsController@show');
 Route::post('/threads', 'ThreadsController@store')->middleware('auth');
 Route::get('/threads/{thread}/edit', 'ThreadsController@edit')->middleware('auth');
 Route::patch('/threads/{thread}', 'ThreadsController@update')->middleware('auth');
+Route::delete('/threads/{thread}', 'ThreadsController@destroy')->middleware('auth');
 
 Route::get('/threads/{thread}/replies', 'RepliesController@index');
 Route::post('/threads/{thread}/replies', 'RepliesController@store')->middleware('auth');
@@ -20,6 +21,9 @@ Route::post('/favorites/{reply}', 'FavoritesController@toggleReply')->where('rep
 Route::post('/favorites/{thread}', 'FavoritesController@toggleThread')->middleware('auth');
 
 Route::get('/profiles/{user}', 'ProfilesController@show')->name('profiles');
+
+Route::get('/settings/edit', 'SettingsController@edit')->middleware('auth');
+Route::patch('/settings', 'SettingsController@update')->middleware('auth');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::resource('categories', 'CategoriesController')->except('show', 'delete');

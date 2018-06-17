@@ -17,10 +17,10 @@
                 <tbody class="bg-white">
                     @forelse($categories as $category)
                         <tr>
+                            <td>{{ $category->name }}</td>
                             <td>
-                                <i class="fa fa-circle fa-fw" style="color: {{ $category->color }}"></i> {{ $category->name }}
+                                <i class="fa fa-circle fa-fw" style="color: {{ $category->color }}"></i>  {{ $category->color }}
                             </td>
-                            <td>{{ $category->color }}</td>
                             <td>{{ $category->slug }}</td>
                             <td class="text-center">{{ $category->threads()->count() }}</td>
                             <td class="text-center">

@@ -1,10 +1,11 @@
 <script>
     import BestReply from '../components/BestReply';
+    import DeleteThread from '../components/DeleteThread';
 
     export default {
         props: ['thread', 'bestReply'],
 
-        components: { BestReply },
+        components: { BestReply, DeleteThread },
 
         data() {
             return {

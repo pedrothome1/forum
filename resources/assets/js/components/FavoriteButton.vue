@@ -3,7 +3,7 @@
             :disabled="sendingRequest"
             @click="toggleFavorite"
             class="favorite-link"
-            :class="{ 'text-danger': active }">
+            :class="{ 'text-orange': active }">
         <i :class="'fa fa-'+icon"></i>{{ favoritesCount }}
     </button>
 </template>
@@ -20,7 +20,7 @@
             return {
                 active: false,
                 sendingRequest: false,
-                count: this.model.favorites_count
+                count: this.model.favorites_count || 0
             };
         },
 

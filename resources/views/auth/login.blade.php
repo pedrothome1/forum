@@ -49,17 +49,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" name="remember" id="custom-check" {{ old('remember') ? 'checked' : '' }} class="custom-control-input">
-                                    <label class="custom-control-label" for="custom-check">
-                                         Lembrar-me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

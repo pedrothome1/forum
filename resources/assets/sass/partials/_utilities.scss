@@ -11,12 +11,20 @@ b, strong {
   color: #4d545d;
 }
 
+.invalid-feedback strong {
+  color: inherit !important;
+}
+
 .bg-blue-darker {
   background-color: $blue-darker;
 }
 
 .text-blue-darker {
   color: $blue-darker;
+}
+
+.text-orange {
+  color: $orange;
 }
 
 .font-weight-600 {
@@ -29,4 +37,12 @@ b, strong {
 
 .flex-1 {
   flex: 1;
+}
+
+.fa-1-75x {
+  font-size: 1.75em;
+}
+
+[class*='btn-outline'] {
+  border-width: 2px !important;
 }

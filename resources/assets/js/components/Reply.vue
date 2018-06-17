@@ -3,7 +3,7 @@
         <div class="card-body">
             <div class="mb-0 d-flex justify-content-between align-items-center" :class="{ 'mb-2': editing }">
                 <div>
-                    <a href="#" class="font-weight-bold">{{ reply.user.username }}</a>
+                    <a :href="'/profiles/'+reply.user.username" class="font-weight-bold">{{ reply.user.username }}</a>
                     <span class="text-muted">{{ reply.ago }}:</span>
                 </div>
 

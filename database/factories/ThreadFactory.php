@@ -8,7 +8,7 @@ $factory->define(\App\Thread::class, function (Faker $faker) {
     return [
         'title' => $title,
         'slug' => mb_strtolower($title, 'UTF-8'),
-        'body' => $faker->paragraph,
+        'body' => $faker->text(800),
         'user_id' => function () {
             return factory(\App\User::class)->create()->id;
         },

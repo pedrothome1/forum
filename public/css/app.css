@@ -14216,7 +14216,7 @@ a.text-dark:focus {
 }
 
 .favorite-link:hover i.fa {
-  color: #ef5350 !important;
+  color: #ef6733 !important;
 }
 
 .action-link:hover * {
@@ -14266,6 +14266,7 @@ a.text-dark:focus {
 }
 
 .custom-card-footer {
+  border-top-style: dashed;
   background-color: transparent;
   padding-top: 0;
   padding-bottom: 0;
@@ -14305,12 +14306,20 @@ strong {
   color: #4d545d;
 }
 
+.invalid-feedback strong {
+  color: inherit !important;
+}
+
 .bg-blue-darker {
   background-color: #1c3d5a;
 }
 
 .text-blue-darker {
   color: #1c3d5a;
+}
+
+.text-orange {
+  color: #ef6733;
 }
 
 .font-weight-600 {
@@ -14325,6 +14334,14 @@ strong {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+
+.fa-1-75x {
+  font-size: 1.75em;
+}
+
+[class*='btn-outline'] {
+  border-width: 2px !important;
 }
 
 .swal-footer {

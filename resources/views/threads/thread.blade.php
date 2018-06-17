@@ -21,9 +21,17 @@
         {!! $thread->body !!}
     </div>
 
-    <div v-if="! solved && userOwns(thread)" class="card-footer custom-card-footer d-flex justify-content-end">
-        <a href="{{ $thread->path('edit') }}" class="action-link">
-            <i class="fa fa-pencil"></i>
-        </a>
-    </div>
+    @if (optional(Auth::user())->can('update', $thread) || optional(Auth::user())->can('delete', $thread))
+        <div class="card-footer custom-card-footer d-flex justify-content-end">
+            @can ('update', $thread)
+                <a href="{{ $thread->path('edit') }}" class="action-link">
+                    <i class="fa fa-pencil"></i>
+                </a>
+            @endcan
+
+            @can ('delete', $thread)
+                <delete-thread form-action="{{ $thread->path() }}"></delete-thread>
+            @endcan
+        </div>
+    @endif
 </div>

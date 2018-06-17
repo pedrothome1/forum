@@ -31,6 +31,6 @@ class ThreadPolicy
      */
     public function delete(User $user, Thread $thread)
     {
-        //
+        return $user->isAdmin() || $user->owns($thread);
     }
 }

@@ -1,8 +1,11 @@
 <nav class="navbar navbar-expand-md navbar-light custom-navbar py-lg-2">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            <i class="fa fa-comments-o fa-lg"></i> {{ config('app.name', 'Laravel') }}
+        <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+            <img class="mr-1" src="/logo.png">
+
+            <span>{{ config('app.name', 'Fórum') }}</span>
         </a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -57,6 +60,10 @@
 
                             <a class="dropdown-item" href="{{ route('profiles', Auth::user()->username) }}">
                                 <i class="fa fa-user fa-fw text-muted"></i> Meu perfil
+                            </a>
+
+                            <a class="dropdown-item" href="/settings/edit">
+                                <i class="fa fa-cog fa-fw text-muted"></i> Minha conta
                             </a>
 
                             <div class="dropdown-divider"></div>

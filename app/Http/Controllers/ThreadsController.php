@@ -72,10 +72,6 @@ class ThreadsController extends Controller
 
         $this->flash('Tópico criado com sucesso.');
 
-        if (request()->expectsJson()) {
-            return response()->json(['redirect' => $thread->path()], 200);
-        }
-
         return redirect($thread->path());
     }
 
@@ -131,10 +127,6 @@ class ThreadsController extends Controller
         ]);
 
         $this->flash('Tópico atualizado com sucesso.');
-
-        if (request()->expectsJson()) {
-            return response()->json(['redirect' => $thread->path()], 200);
-        }
 
         return redirect($thread->path());
     }
